@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <link rel="stylesheet" href="./Style/Index.css">
+    <link rel="stylesheet" href="./Style/Index.css" />
 </head>
 <body>
-   <div class="home-container">
+    <div class="home-container">
         <!--#include file='Header.inc'-->
         <div class="page-container">
-            <img src="./Assets/Boom.png" alt="manager"/>
+            <img src="./Assets/Boom.png" alt="manager" />
         </div>
     </div>
 </body>

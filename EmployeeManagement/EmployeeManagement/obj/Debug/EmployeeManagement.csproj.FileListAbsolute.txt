@@ -57,3 +57,47 @@ D:\Excel Creates\Final Project\EmployeeManagement\EmployeeManagement\obj\Debug\E
 D:\Excel Creates\Final Project\EmployeeManagement\EmployeeManagement\obj\Debug\EmployeeManagement.csproj.CopyComplete
 D:\Excel Creates\Final Project\EmployeeManagement\EmployeeManagement\obj\Debug\EmployeeManagement.dll
 D:\Excel Creates\Final Project\EmployeeManagement\EmployeeManagement\obj\Debug\EmployeeManagement.pdb
+E:\研修\10.プロジェクト型演習(ASP.NET)\ECTrainingFinalProject\EmployeeManagement\EmployeeManagement\bin\EmployeeManagement.dll
+E:\研修\10.プロジェクト型演習(ASP.NET)\ECTrainingFinalProject\EmployeeManagement\EmployeeManagement\bin\EmployeeManagement.pdb
+E:\研修\10.プロジェクト型演習(ASP.NET)\ECTrainingFinalProject\EmployeeManagement\EmployeeManagement\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\研修\10.プロジェクト型演習(ASP.NET)\ECTrainingFinalProject\EmployeeManagement\EmployeeManagement\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\研修\10.プロジェクト型演習(ASP.NET)\ECTrainingFinalProject\EmployeeManagement\EmployeeManagement\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\研修\10.プロジェクト型演習(ASP.NET)\ECTrainingFinalProject\EmployeeManagement\EmployeeManagement\obj\Debug\EmployeeManagement.csproj.AssemblyReference.cache
+E:\研修\10.プロジェクト型演習(ASP.NET)\ECTrainingFinalProject\EmployeeManagement\EmployeeManagement\obj\Debug\EmployeeManagement.csproj.CoreCompileInputs.cache
+E:\研修\10.プロジェクト型演習(ASP.NET)\ECTrainingFinalProject\EmployeeManagement\EmployeeManagement\obj\Debug\EmployeeManagement.csproj.CopyComplete
+E:\研修\10.プロジェクト型演習(ASP.NET)\ECTrainingFinalProject\EmployeeManagement\EmployeeManagement\obj\Debug\EmployeeManagement.dll
+E:\研修\10.プロジェクト型演習(ASP.NET)\ECTrainingFinalProject\EmployeeManagement\EmployeeManagement\obj\Debug\EmployeeManagement.pdb
+E:\研修\10.プロジェクト型演習(ASP.NET)\ECTrainingFinalProject\EmployeeManagement\EmployeeManagement\bin\EmployeeManagement.dll.config
+E:\研修\10.プロジェクト型演習(ASP.NET)\ECTrainingFinalProject\EmployeeManagement\EmployeeManagement\bin\roslyn\csc.exe
+E:\研修\10.プロジェクト型演習(ASP.NET)\ECTrainingFinalProject\EmployeeManagement\EmployeeManagement\bin\roslyn\csc.exe.config
+E:\研修\10.プロジェクト型演習(ASP.NET)\ECTrainingFinalProject\EmployeeManagement\EmployeeManagement\bin\roslyn\csc.rsp
+E:\研修\10.プロジェクト型演習(ASP.NET)\ECTrainingFinalProject\EmployeeManagement\EmployeeManagement\bin\roslyn\csi.exe
+E:\研修\10.プロジェクト型演習(ASP.NET)\ECTrainingFinalProject\EmployeeManagement\EmployeeManagement\bin\roslyn\csi.exe.config
+E:\研修\10.プロジェクト型演習(ASP.NET)\ECTrainingFinalProject\EmployeeManagement\EmployeeManagement\bin\roslyn\csi.rsp
+E:\研修\10.プロジェクト型演習(ASP.NET)\ECTrainingFinalProject\EmployeeManagement\EmployeeManagement\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\研修\10.プロジェクト型演習(ASP.NET)\ECTrainingFinalProject\EmployeeManagement\EmployeeManagement\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+E:\研修\10.プロジェクト型演習(ASP.NET)\ECTrainingFinalProject\EmployeeManagement\EmployeeManagement\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\研修\10.プロジェクト型演習(ASP.NET)\ECTrainingFinalProject\EmployeeManagement\EmployeeManagement\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+E:\研修\10.プロジェクト型演習(ASP.NET)\ECTrainingFinalProject\EmployeeManagement\EmployeeManagement\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\研修\10.プロジェクト型演習(ASP.NET)\ECTrainingFinalProject\EmployeeManagement\EmployeeManagement\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\研修\10.プロジェクト型演習(ASP.NET)\ECTrainingFinalProject\EmployeeManagement\EmployeeManagement\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+E:\研修\10.プロジェクト型演習(ASP.NET)\ECTrainingFinalProject\EmployeeManagement\EmployeeManagement\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+E:\研修\10.プロジェクト型演習(ASP.NET)\ECTrainingFinalProject\EmployeeManagement\EmployeeManagement\bin\roslyn\Microsoft.Managed.Core.targets
+E:\研修\10.プロジェクト型演習(ASP.NET)\ECTrainingFinalProject\EmployeeManagement\EmployeeManagement\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\研修\10.プロジェクト型演習(ASP.NET)\ECTrainingFinalProject\EmployeeManagement\EmployeeManagement\bin\roslyn\System.Collections.Immutable.dll
+E:\研修\10.プロジェクト型演習(ASP.NET)\ECTrainingFinalProject\EmployeeManagement\EmployeeManagement\bin\roslyn\System.IO.FileSystem.dll
+E:\研修\10.プロジェクト型演習(ASP.NET)\ECTrainingFinalProject\EmployeeManagement\EmployeeManagement\bin\roslyn\System.IO.FileSystem.Primitives.dll
+E:\研修\10.プロジェクト型演習(ASP.NET)\ECTrainingFinalProject\EmployeeManagement\EmployeeManagement\bin\roslyn\System.Reflection.Metadata.dll
+E:\研修\10.プロジェクト型演習(ASP.NET)\ECTrainingFinalProject\EmployeeManagement\EmployeeManagement\bin\roslyn\System.Text.Encoding.CodePages.dll
+E:\研修\10.プロジェクト型演習(ASP.NET)\ECTrainingFinalProject\EmployeeManagement\EmployeeManagement\bin\roslyn\System.Threading.Tasks.Extensions.dll
+E:\研修\10.プロジェクト型演習(ASP.NET)\ECTrainingFinalProject\EmployeeManagement\EmployeeManagement\bin\roslyn\vbc.exe
+E:\研修\10.プロジェクト型演習(ASP.NET)\ECTrainingFinalProject\EmployeeManagement\EmployeeManagement\bin\roslyn\vbc.exe.config
+E:\研修\10.プロジェクト型演習(ASP.NET)\ECTrainingFinalProject\EmployeeManagement\EmployeeManagement\bin\roslyn\vbc.rsp
+E:\研修\10.プロジェクト型演習(ASP.NET)\ECTrainingFinalProject\EmployeeManagement\EmployeeManagement\bin\roslyn\VBCSCompiler.exe
+E:\研修\10.プロジェクト型演習(ASP.NET)\ECTrainingFinalProject\EmployeeManagement\EmployeeManagement\bin\roslyn\VBCSCompiler.exe.config
+E:\研修\10.プロジェクト型演習(ASP.NET)\ECTrainingFinalProject\EmployeeManagement\EmployeeManagement\bin\roslyn\System.Buffers.dll
+E:\研修\10.プロジェクト型演習(ASP.NET)\ECTrainingFinalProject\EmployeeManagement\EmployeeManagement\bin\roslyn\System.Memory.dll
+E:\研修\10.プロジェクト型演習(ASP.NET)\ECTrainingFinalProject\EmployeeManagement\EmployeeManagement\bin\roslyn\System.Numerics.Vectors.dll
+E:\研修\10.プロジェクト型演習(ASP.NET)\ECTrainingFinalProject\EmployeeManagement\EmployeeManagement\bin\roslyn\System.Runtime.CompilerServices.Unsafe.dll
+E:\研修\10.プロジェクト型演習(ASP.NET)\ECTrainingFinalProject\EmployeeManagement\EmployeeManagement\bin\System.Data.SqlClient.dll
+E:\研修\10.プロジェクト型演習(ASP.NET)\ECTrainingFinalProject\EmployeeManagement\EmployeeManagement\bin\System.Data.SqlClient.xml
