@@ -72,6 +72,12 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAO\EmployeeDAO.cs" />
+    <Compile Include="DAO\LicenseDAO.cs" />
+    <Compile Include="DAO\UserDAO.cs" />
+    <Compile Include="Entity\EmployeeEntity.cs" />
+    <Compile Include="Entity\LicenseEntity.cs" />
+    <Compile Include="Entity\UserEntity.cs" />
     <Compile Include="Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -92,8 +98,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Assets\" />
-    <Folder Include="DAO\" />
-    <Folder Include="Entity\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
