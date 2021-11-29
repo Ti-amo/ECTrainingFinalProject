@@ -67,15 +67,31 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="EmployeeRegister.aspx" />
+    <Content Include="EmployeeUpdate.aspx" />
     <Content Include="Header.inc" />
     <Content Include="Index.aspx" />
     <Content Include="Style\Index.css" />
-    <Content Include="Web.config" />
+    <Content Include="UserRegister.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAO\EmployeeDAO.cs" />
     <Compile Include="DAO\LicenseDAO.cs" />
     <Compile Include="DAO\UserDAO.cs" />
+    <Compile Include="EmployeeRegister.aspx.cs">
+      <DependentUpon>EmployeeRegister.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EmployeeRegister.aspx.designer.cs">
+      <DependentUpon>EmployeeRegister.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeUpdate.aspx.cs">
+      <DependentUpon>EmployeeUpdate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EmployeeUpdate.aspx.designer.cs">
+      <DependentUpon>EmployeeUpdate.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Entity\EmployeeEntity.cs" />
     <Compile Include="Entity\LicenseEntity.cs" />
     <Compile Include="Entity\UserEntity.cs" />
@@ -87,8 +103,19 @@
       <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserRegister.aspx.cs">
+      <DependentUpon>UserRegister.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserRegister.aspx.designer.cs">
+      <DependentUpon>UserRegister.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Assets\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Web.config" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -96,9 +123,6 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Assets\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
