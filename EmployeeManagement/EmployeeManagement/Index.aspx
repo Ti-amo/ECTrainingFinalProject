@@ -9,10 +9,7 @@
 </head>
 <body>
    <div class="home-container">
-        <div class="wrap-header">
-
-            <div class="header-text">ブームマネージャーを作成しましょう</div>
-        </div>
+        <!--#include file='Header.inc'-->
         <div class="page-container">
             <img src="./Assets/Boom.png" alt="manager"/>
         </div>
