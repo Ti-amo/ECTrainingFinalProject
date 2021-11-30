@@ -92,6 +92,7 @@
     </Compile>
     <Compile Include="DAO\EmployeeDAO.cs" />
     <Compile Include="DAO\LicenseDAO.cs" />
+    <Compile Include="DAO\ListDAO.cs" />
     <Compile Include="DAO\UserDAO.cs" />
     <Compile Include="EmployeeList.aspx.cs">
       <DependentUpon>EmployeeList.aspx</DependentUpon>
@@ -152,6 +153,9 @@
     <Compile Include="GetLicense.aspx.designer.cs">
       <DependentUpon>GetLicense.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Item\GenderItem.cs" />
+    <Compile Include="Item\LicenseItem.cs" />
+    <Compile Include="Item\SectionItem.cs" />
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
