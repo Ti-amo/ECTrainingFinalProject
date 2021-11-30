@@ -3,34 +3,46 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace EmployeeManagement.Entity
-{
-    public class EmployeeEntity
-    {
-        string empCode;
-        string name;
-        string nameKana;
-        string gender;
-        List<LicenseEntity> license = new List<LicenseEntity>();
-        string section;
-        string empDate;
-        public string EmpCode { get => empCode; set => empCode = value; }
-        public string Name { get => name; set => name = value; }
-        public string NameKana { get => nameKana; set => nameKana = value; }    
-        public string Gender { get => gender; set => gender = value; }
-        public List<LicenseEntity> License { get => license; set => license = value;}
-        public string Section { get => section; set => section = value; }
-        public string EmpDate { get => empDate; set => empDate = value; }   
-        public EmployeeEntity() { }
-        public EmployeeEntity(string empCode, string name, string nameKana, string gender, List<LicenseEntity> license, string section, string empDate)
-        {
-            this.EmpCode = empCode;
-            this.Name = name;
-            this.NameKana = nameKana;
-            this.Gender = gender;
-            this.License = license;
-            this.Section = section;
-            this.EmpDate = empDate;
-        }
+namespace EmployeeManagement.Entity {
+    public class EmployeeEntity {
+        /// <summary>
+        /// 従業員コード
+        /// </summary>
+        public string EmpCode { get; set; }
+
+        /// <summary>
+        /// 氏名
+        /// </summary>
+        public string Name { get; set; }
+
+        /// <summary>
+        /// 氏名（フリガナ）
+        /// </summary>
+        public string NameKana { get; set; }
+
+        /// <summary>
+        /// 性別コード
+        /// </summary>
+        public int Gender { get; set; }
+
+        /// <summary>
+        /// 生年月日
+        /// </summary>
+        public string BirthDate { get; set; }
+
+        /// <summary>
+        /// 資格
+        /// </summary>
+        public List<string> License { get; set; }
+
+        /// <summary>
+        /// 所属コード
+        /// </summary>
+        public string Section { get; set; }
+
+        /// <summary>
+        /// 入社日
+        /// </summary>
+        public string EmpDate { get; set; }
     }
 }
