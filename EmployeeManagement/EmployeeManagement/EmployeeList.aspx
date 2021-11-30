@@ -1,4 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="EmployeeList.aspx.cs" Inherits="EmployeeManagement.EmployeeList" %>
+﻿<%@ Import Namespace="EmployeeManagement.Entity" %>
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="EmployeeList.aspx.cs" Inherits="EmployeeManagement.EmployeeList" %>
 
 <!DOCTYPE html>
 
@@ -8,6 +9,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
+        <!--#include file="Header.inc"-->
         <div>
             <div>
                 <asp:Label runat="server" ID="LabelTitle" Text="全ての従業員" />
@@ -38,10 +40,10 @@
                                 <td><asp:Label runat="server" Text='<%# Eval("Name") %>' /></td>
                                 <td><asp:Label runat="server" Text='<%# Eval("NameKana") %>' /></td>
                                 <td><asp:Label runat="server" Text='<%# Eval("Gender") %>' /></td>
-                                <td><asp:Label runat="server" Text='<%# Eval("BirthDay").ToString() %>' /></td>
-                                <td><asp:Label runat="server" Text='' /></td>
+                                <td><asp:Label runat="server" Text='<%# Eval("DateOfBirth") %>' /></td>
+                                <td><asp:Label runat="server" Text='<%# ((EmployeeEntity)Container.DataItem).GetLicenseName() %>' /></td>
                                 <td><asp:Label runat="server" Text='<%# Eval("Section") %>' /></td>
-                                <td><asp:Label runat="server" Text='<%# Eval("EmpDate").ToString() %>' /></td>
+                                <td><asp:Label runat="server" Text='<%# Eval("EmpDate") %>' /></td>
                                 <td><asp:CheckBox runat="server" ID="CheckboxEmployee" /></td>
                             </tr>
                         </tbody>
