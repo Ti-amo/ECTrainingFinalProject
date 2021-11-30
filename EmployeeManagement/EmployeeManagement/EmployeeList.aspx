@@ -38,7 +38,7 @@
                         <td>
                             <asp:Label runat="server" Text='<%# Eval("Gender") %>' /></td>
                         <td>
-                            <asp:Label runat="server" Text='<%# ((EmployeeEntity)Container.DataItem).GetLicenseName() %>' /></td>
+                            <asp:Label runat="server" Text="" /></td>
                         <td>
                             <asp:Label runat="server" Text='<%# Eval("Section") %>' /></td>
                         <td>
