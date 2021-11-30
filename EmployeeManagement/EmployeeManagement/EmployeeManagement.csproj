@@ -86,6 +86,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Error.aspx" />
     <Content Include="Include\Hamburger.inc" />
     <Content Include="EmployeeList.aspx" />
     <Content Include="Header.inc" />
@@ -121,6 +122,13 @@
     <Compile Include="Entity\EmployeeEntity.cs" />
     <Compile Include="Entity\LicenseEntity.cs" />
     <Compile Include="Entity\UserEntity.cs" />
+    <Compile Include="Error.aspx.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Error.aspx.designer.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

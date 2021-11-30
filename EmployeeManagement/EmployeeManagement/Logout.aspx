@@ -15,7 +15,7 @@
         <div>
             <asp:Label runat="server" Text="ログアウトしました。 またね。"></asp:Label>
         </div>
-        <asp:Button ID="ButtonLogin" runat="server" Text="ログイン" OnClick="ButtonLogin_Click" />
+        <asp:Button CssClass="btn btn-primary" ID="ButtonLogin" runat="server" Text="ログイン" OnClick="ButtonLogin_Click" />
     </form>
 </body>
 </html>
