@@ -12,6 +12,9 @@
         <!--#include file="Header.inc"-->
         <div>
             <div>
+
+            </div>
+            <div>
                 <asp:Label runat="server" ID="LabelTitle" Text="全ての従業員" />
                 <asp:Button runat="server" ID="ButtonUpdate" Text="変更" OnClick="ButtonUpdate_Click" />
                 <asp:Button runat="server" ID="ButtonDelete" Text="削除" OnClick="ButtonDelete_Click" />
