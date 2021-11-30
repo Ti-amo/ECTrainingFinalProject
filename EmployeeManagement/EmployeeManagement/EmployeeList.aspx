@@ -43,7 +43,7 @@
                                 <td><asp:Label runat="server" Text='<%# Eval("Name") %>' /></td>
                                 <td><asp:Label runat="server" Text='<%# Eval("NameKana") %>' /></td>
                                 <td><asp:Label runat="server" Text='<%# Eval("Gender") %>' /></td>
-                                <td><asp:Label runat="server" Text='<%# Eval("DateOfBirth") %>' /></td>
+                                <td><asp:Label runat="server" Text='<%#  %>' /></td>
                                 <td><asp:Label runat="server" Text='<%# ((EmployeeEntity)Container.DataItem).GetLicenseName() %>' /></td>
                                 <td><asp:Label runat="server" Text='<%# Eval("Section") %>' /></td>
                                 <td><asp:Label runat="server" Text='<%# Eval("EmpDate") %>' /></td>
