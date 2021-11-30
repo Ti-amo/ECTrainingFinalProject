@@ -67,6 +67,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Check.aspx" />
+    <Content Include="Include\Hamburger.inc" />
     <Content Include="EmployeeList.aspx" />
     <Content Include="Header.inc" />
     <Content Include="Index.aspx" />
@@ -81,6 +83,13 @@
     <Content Include="Menu.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Check.aspx.cs">
+      <DependentUpon>Check.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Check.aspx.designer.cs">
+      <DependentUpon>Check.aspx</DependentUpon>
+    </Compile>
     <Compile Include="DAO\EmployeeDAO.cs" />
     <Compile Include="DAO\LicenseDAO.cs" />
     <Compile Include="DAO\ListDAO.cs" />
@@ -116,6 +125,13 @@
     <Compile Include="EmployeeUpdate.aspx.designer.cs">
       <DependentUpon>EmployeeUpdate.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
     <Compile Include="UserRegister.aspx.cs">
       <DependentUpon>UserRegister.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -123,7 +139,7 @@
     <Compile Include="UserRegister.aspx.designer.cs">
       <DependentUpon>UserRegister.aspx</DependentUpon>
     </Compile>
-     <Compile Include="Finish.aspx.cs">
+    <Compile Include="Finish.aspx.cs">
       <DependentUpon>Finish.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
@@ -166,6 +182,7 @@
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Web.config" />
+    <Content Include="Site.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
