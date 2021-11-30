@@ -1,0 +1,25 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="EmployeeManagement.Site" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link rel="stylesheet" href="./Style/Index.css" />
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="home-container">
+            <!--#include file='Header.inc'-->
+            <div class="page-container">
+                <img src="./Assets/Boom.png" alt="manager" />
+            </div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>
