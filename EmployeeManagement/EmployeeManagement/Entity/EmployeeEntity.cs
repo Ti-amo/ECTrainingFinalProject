@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-<<<<<<< HEAD
 using System.Text;
-=======
->>>>>>> c69f87aff38be9ea282b5b32e56e3228f2c12921
 using System.Web;
 
 namespace EmployeeManagement.Entity
