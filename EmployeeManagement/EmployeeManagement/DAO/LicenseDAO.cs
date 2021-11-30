@@ -43,7 +43,7 @@ namespace EmployeeManagement.DAO {
             // SQL文：SELECT句
             string query = @"SELECT * 
 							FROM t_get_license gl 
-                            LEFT JOIN m_license l ON gl.license_cd = l.license_cd 
+                            LEFT JOIN m_license l ON l.license_cd = gl.license_cd 
 							WHERE emp_cd = @emp_cd";
 
             // コマンドの作成

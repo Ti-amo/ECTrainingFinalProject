@@ -44,12 +44,16 @@ namespace EmployeeManagement.DAO {
 
             // SQL文：SELECT句
             string query = @"SELECT * 
-							FROM m_employee";
+                            FROM m_employee e
+                            INNER JOIN m_gender g ON g.gender_cd = e.gender_cd 
+                            INNER JOIN m_section s ON s.section_cd = e.section_cd";
 
             // コマンドの作成
             command = new SqlCommand(query, connection);
             // データリーダーの作成
             dataReader = command.ExecuteReader();
+
+            LicenseDAO licenseDAO = new LicenseDAO();
 
             // データを１行ずつ抽出する
             while (dataReader.Read()) {
@@ -58,11 +62,12 @@ namespace EmployeeManagement.DAO {
                     EmpCode = (string)dataReader["emp_cd"],
                     Name = (string)dataReader["name"],
                     NameKana = (string)dataReader["name_kana"],
-                    Gender = (int)dataReader["gender_cd"],
+                    Gender = (string)dataReader["gender_nm"],
                     BirthDate = (string)dataReader["birth_date"],
-                    Section = (string)dataReader["section_cd"],
-                    EmpDate = (string)dataReader["emp_date"]
+                    Section = (string)dataReader["section_nm"],
+                    EmpDate = (string)dataReader["emp_date"],
                 };
+                employeeEntity.License = licenseDAO.FindAll(employeeEntity.EmpCode);
 
                 // 従業員をリストに格納する
                 employeeList.Add(employeeEntity);
@@ -82,7 +87,9 @@ namespace EmployeeManagement.DAO {
         public EmployeeEntity Find(string empCode) {
             // SQL文：SELECT句
             string query = @"SELECT * 
-							FROM m_employee 
+                            FROM m_employee e
+                            INNER JOIN m_gender g ON g.gender_cd = e.gender_cd 
+                            INNER JOIN m_section s ON s.section_cd = e.section_cd 
 							WHERE emp_cd = @emp_cd";
 
             // コマンドの作成
@@ -92,6 +99,8 @@ namespace EmployeeManagement.DAO {
             // データリーダーの作成
             dataReader = command.ExecuteReader();
 
+            LicenseDAO licenseDAO = new LicenseDAO();
+
             EmployeeEntity employeeEntity = null;
             // データを１行ずつ抽出する
             while (dataReader.Read()) {
@@ -100,11 +109,12 @@ namespace EmployeeManagement.DAO {
                     EmpCode = (string)dataReader["emp_cd"],
                     Name = (string)dataReader["name"],
                     NameKana = (string)dataReader["name_kana"],
-                    Gender = (int)dataReader["gender_cd"],
+                    Gender = (string)dataReader["gender_nm"],
                     BirthDate = (string)dataReader["birth_date"],
-                    Section = (string)dataReader["section_cd"],
+                    Section = (string)dataReader["section_nm"],
                     EmpDate = (string)dataReader["emp_date"]
                 };
+                employeeEntity.License = licenseDAO.FindAll(employeeEntity.EmpCode);
             }
 
             command.Dispose();

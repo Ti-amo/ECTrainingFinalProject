@@ -21,9 +21,9 @@ namespace EmployeeManagement.Entity {
         public string NameKana { get; set; }
 
         /// <summary>
-        /// 性別コード
+        /// 性別名
         /// </summary>
-        public int Gender { get; set; }
+        public string Gender { get; set; }
 
         /// <summary>
         /// 生年月日
@@ -36,7 +36,7 @@ namespace EmployeeManagement.Entity {
         public List<string> License { get; set; }
 
         /// <summary>
-        /// 所属コード
+        /// 所属名
         /// </summary>
         public string Section { get; set; }
 
