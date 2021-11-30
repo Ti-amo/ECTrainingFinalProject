@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Web;
 
 namespace EmployeeManagement.Entity
@@ -22,7 +23,9 @@ namespace EmployeeManagement.Entity
         public string Section { get => section; set => section = value; }
         public string EmpDate { get => empDate; set => empDate = value; }   
         public EmployeeEntity() { }
+
         public EmployeeEntity(string empCode, string name, string nameKana, string gender, List<LicenseEntity> license, string section, string empDate)
+
         {
             this.EmpCode = empCode;
             this.Name = name;
@@ -31,6 +34,17 @@ namespace EmployeeManagement.Entity
             this.License = license;
             this.Section = section;
             this.EmpDate = empDate;
+        }
+
+        public string GetLicenseName()
+        {
+            StringBuilder builder = new StringBuilder();
+            foreach (LicenseEntity license in License)
+            {
+                builder.Append(license.LicenseName);
+                builder.Append(", ");
+            }
+            return builder.Remove(builder.Length - 2, 2).ToString();
         }
     }
 }
