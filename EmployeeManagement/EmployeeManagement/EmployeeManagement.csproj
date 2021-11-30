@@ -67,6 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Include\Hamburger.inc" />
     <Content Include="EmployeeList.aspx" />
     <Content Include="Header.inc" />
     <Content Include="Index.aspx" />
