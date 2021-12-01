@@ -1,17 +1,9 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="UserRegister.aspx.cs" Inherits="EmployeeManagement.UserRegister" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="UserRegister.aspx.cs" Inherits="EmployeeManagement.UserRegister" MasterPageFile="~/Site.Master" %>
 
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
-            <!--#include file="Header.inc"-->
-
-        <table width ="45%">  
-                <caption><b><span style="font-size:40px">利用者登録</span></b></caption>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+     <h1>利用者登録</h1>
+        <table width="45%" >  
+               <%-- <caption><b>利用者登録</b></caption>--%>
     <tr>  
          <td width="20%">  
            <asp:Label ID="lbUserId" runat="server" Text="ユーザID"></asp:Label>
@@ -39,7 +31,4 @@
      </tr>  
      
  </table>  
-       
-    </form>
-</body>
-</html>
+ </asp:Content>

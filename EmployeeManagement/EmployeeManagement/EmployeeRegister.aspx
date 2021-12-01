@@ -1,18 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="EmployeeRegister.aspx.cs" Inherits="EmployeeManagement.EmployeeRegister" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="EmployeeRegister.aspx.cs" Inherits="EmployeeManagement.EmployeeRegister" MasterPageFile="~/Site.Master"%>
 
-<!DOCTYPE html>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-
-</head>
-<body>
-    <form id="form1" runat="server">
-            <!--#include file="Header.inc"-->
-
+    <h1>従業員登録</h1>
         <table width ="45%">  
-            <caption><b><span style="font-size:40px">従業員登録</span></b></caption>
+            <%--<caption><b><span style="font-size:40px">従業員登録</span></b></caption>--%>
     
     <tr>  
          <td width="30%">  
@@ -44,10 +36,6 @@
          </td>  
          <td width="40%">  
              <asp:DropDownList ID="DropDownListGender" runat="server">
-                 <asp:ListItem>不明</asp:ListItem>
-                <asp:ListItem>男性</asp:ListItem>
-                <asp:ListItem>女性</asp:ListItem>
-                <asp:ListItem>その他</asp:ListItem>
              </asp:DropDownList>
          </td>  
      </tr>  
@@ -66,10 +54,6 @@
          </td>  
          <td width="40%">  
            <asp:DropDownList ID="DropDownListSection" runat="server">
-                 <asp:ListItem>管理部</asp:ListItem>
-                <asp:ListItem>総務部</asp:ListItem>
-                <asp:ListItem>開発部</asp:ListItem>
-                <asp:ListItem>営業部</asp:ListItem>
              </asp:DropDownList>
          </td>  
      </tr>       
@@ -93,9 +77,7 @@
      
  </table>  
       
-    </form>
-</body>
-</html>
+  </asp:Content>
 
 
 
