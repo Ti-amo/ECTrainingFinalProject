@@ -210,8 +210,24 @@ namespace EmployeeManagement.DAO
         public int Delete(EmployeeEntity employeeEntity)
         {
             // SQL文：DELETE句
-            string query = @"DELETE FROM m_employee 
+            string query = @"DELETE FROM t_get_license 
 							WHERE emp_cd = @emp_cd";
+
+            // トランザクションの作成
+            transaction = connection.BeginTransaction();
+
+            // コマンドの作成
+            command = new SqlCommand(query, connection, transaction);
+            command.Parameters.AddWithValue("@emp_cd", employeeEntity.EmpCode);
+            command.ExecuteNonQuery();
+
+            transaction.Commit();
+            transaction.Dispose();
+            command.Dispose();
+
+            // SQL文：DELETE句
+            query = @"DELETE FROM m_employee 
+                    WHERE emp_cd = @emp_cd";
 
             // トランザクションの作成
             transaction = connection.BeginTransaction();

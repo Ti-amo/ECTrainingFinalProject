@@ -96,6 +96,10 @@ namespace EmployeeManagement
             if (check != 1)
             {
                 // Redirect to error page
+                Session["error"] = "従業員情報の変更";
+                Session["msg"] = "従業員を一人選択してください。";
+                Session["page"] = "EmployeeList";
+                Response.Redirect("Error.aspx");
             }
             else
             {
@@ -116,7 +120,9 @@ namespace EmployeeManagement
                 }
             }
             // Redirect to done page
-            
+            Session["finish"] = "従業員削除";
+            Session["page"] = "EmployeeList";
+            Response.Redirect("Finish.aspx");
         }
     }
 }
