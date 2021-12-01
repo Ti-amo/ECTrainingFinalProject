@@ -153,10 +153,14 @@ namespace EmployeeManagement.DAO
             command.Parameters.AddWithValue("@name", employeeEntity.Name);
             command.Parameters.AddWithValue("@name_kana", employeeEntity.NameKana);
             command.Parameters.AddWithValue("@gender_cd", employeeEntity.Gender);
-            command.Parameters.AddWithValue("@birth_date", employeeEntity.BirthDate);
             command.Parameters.AddWithValue("@section_cd", employeeEntity.Section);
-            command.Parameters.AddWithValue("@emp_date", employeeEntity.EmpDate);
+            //DateTime date = DateTime.ParseExact(employeeEntity.BirthDate, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+            DateTime birthDate = Convert.ToDateTime(employeeEntity.BirthDate);
+            command.Parameters.AddWithValue("@birth_date", birthDate);
+            //DateTime empDate = DateTime.ParseExact(employeeEntity.EmpDate, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+            DateTime empDate = Convert.ToDateTime(employeeEntity.EmpDate);
 
+            command.Parameters.AddWithValue("@emp_date", empDate);
             int recordNumber = command.ExecuteNonQuery(); // 挿入されたレコード数
             transaction.Commit();
             transaction.Dispose();
