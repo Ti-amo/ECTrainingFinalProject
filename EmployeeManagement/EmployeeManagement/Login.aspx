@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div>
-        <asp:Label runat="server" Text="ログイン"></asp:Label><br />
+        <h2 class="main-title">ログイン</h2>
 
         <asp:Label AssociatedControlID="TextBoxUserID" runat="server" Text="ユーザＩＤ"></asp:Label>
         <asp:TextBox ID="TextBoxUserID" runat="server"></asp:TextBox><br />
@@ -14,5 +14,5 @@
 
         <asp:Label ID="LabelMsg" runat="server" Visible="false"></asp:Label>
     </div>
-    <asp:Button ID="ButtonLogin" runat="server" Text="ログイン" OnClick="ButtonLogin_Click" />
+    <asp:Button CssClass="btn btn-primary ml-180" ID="ButtonLogin" runat="server" Text="ログイン" OnClick="ButtonLogin_Click" />
 </asp:Content>

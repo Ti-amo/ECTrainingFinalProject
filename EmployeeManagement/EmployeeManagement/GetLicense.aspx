@@ -2,16 +2,16 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div>
-        <h2>資格取得</h2>
+        <h2 class="main-title">資格取得</h2>
         <br />
 
         <asp:Table ID="Table1" runat="server">
             <asp:TableRow>
-                <asp:TableCell>
+                <asp:TableCell Width="35%">
                         <asp:Label AssociatedControlID="TextBoxEmpCode" runat="server" Text="従業員コード"></asp:Label>
                 </asp:TableCell>
                 <asp:TableCell>
-                    <asp:TextBox ID="TextBoxEmpCode" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="TextBoxEmpCode" runat="server" Width="293px"></asp:TextBox>
                 </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
@@ -32,10 +32,10 @@
             </asp:TableRow>
             <asp:TableRow>
                 <asp:TableCell>
-                    <asp:Button ID="ButtonGet" runat="server" Text="取得" OnClick="ButtonGet_Click" />
                 </asp:TableCell>
-                <asp:TableCell>
-                    <asp:Button ID="ButtonCancel" runat="server" Text="キャンセル" OnClick="ButtonCancel_Click" />
+                <asp:TableCell Height="100px">
+                    <asp:Button CssClass="btn btn-danger ml-48" ID="ButtonCancel" runat="server" Text="キャンセル" Width="120px" OnClick="ButtonCancel_Click" />
+                    <asp:Button CssClass="btn btn-primary ml-4" ID="ButtonGet" runat="server" Text="取得" Width="120px" OnClick="ButtonGet_Click" />
                 </asp:TableCell>
             </asp:TableRow>
         </asp:Table>

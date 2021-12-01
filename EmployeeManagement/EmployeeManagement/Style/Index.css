@@ -55,3 +55,19 @@
     padding: 30px;
     border-radius: 10px
 }
+.main-title {
+    text-align: center;
+    font-weight: 600;
+}
+.ml-180 {
+    margin-left: 180px
+}
+.ml-60 {
+    margin-left: 60px
+}
+.ml-48 {
+    margin-left: 48px
+}
+.ml-4 {
+    margin-left: 4px
+}

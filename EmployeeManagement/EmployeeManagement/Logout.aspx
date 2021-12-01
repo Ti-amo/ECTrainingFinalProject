@@ -4,5 +4,5 @@
     <div>
         <asp:Label runat="server" Text="ログアウトしました。 またね。"></asp:Label>
     </div>
-    <asp:Button CssClass="btn btn-primary" ID="ButtonLogin" runat="server" Text="ログイン" OnClick="ButtonLogin_Click" />
+    <asp:Button CssClass="btn btn-primary ml-60" ID="ButtonLogin" runat="server" Text="ログイン" OnClick="ButtonLogin_Click" />
 </asp:Content>
