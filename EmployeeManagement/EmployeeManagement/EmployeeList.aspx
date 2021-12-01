@@ -1,56 +1,25 @@
-﻿<%@ Import Namespace="EmployeeManagement.Entity" %>
-
-<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="EmployeeList.aspx.cs" Inherits="EmployeeManagement.EmployeeList" MasterPageFile="~/Site.Master" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="EmployeeList.aspx.cs" Inherits="EmployeeManagement.EmployeeList" MasterPageFile="~/Site.Master" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div>
+        <!--#include file="/Include/HamburgerMenu.inc"-->
         <div>
             <asp:Label runat="server" ID="LabelTitle" Text="全ての従業員" />
             <asp:Button CssClass="btn btn-warning" runat="server" ID="ButtonUpdate" Text="変更" OnClick="ButtonUpdate_Click" />
             <asp:Button CssClass="btn btn-danger" runat="server" ID="ButtonDelete" Text="削除" OnClick="ButtonDelete_Click" />
         </div>
-        <asp:Repeater runat="server" ID="RepeaterEmployeeList">
-            <HeaderTemplate>
-                <table border="1" cellpadding="5" cellspacing="0">
-                    <thead>
-                        <tr>
-                            <td>コード</td>
-                            <td>氏名</td>
-                            <td>氏名（フリガナ）</td>
-                            <td>性別</td>
-                            <td>生年月日</td>
-                            <td>保有資格</td>
-                            <td>所属部署</td>
-                            <td>入社日</td>
-                            <td></td>
-                        </tr>
-                    </thead>
-            </HeaderTemplate>
-            <ItemTemplate>
-                <tbody>
-                    <tr>
-                        <td>
-                            <asp:Label runat="server" Text='<%# Eval("EmpCode") %>' /></td>
-                        <td>
-                            <asp:Label runat="server" Text='<%# Eval("Name") %>' /></td>
-                        <td>
-                            <asp:Label runat="server" Text='<%# Eval("NameKana") %>' /></td>
-                        <td>
-                            <asp:Label runat="server" Text='<%# Eval("Gender") %>' /></td>
-                        <td>
-                            <asp:Label runat="server" Text="" /></td>
-                        <td>
-                            <asp:Label runat="server" Text='<%# Eval("Section") %>' /></td>
-                        <td>
-                            <asp:Label runat="server" Text='<%# Eval("EmpDate") %>' /></td>
-                        <td>
-                            <asp:CheckBox runat="server" ID="CheckboxEmployee" /></td>
-                    </tr>
-                </tbody>
-            </ItemTemplate>
-            <FooterTemplate>
-                </table>    
-            </FooterTemplate>
-        </asp:Repeater>
+        <asp:Table runat="server" ID="TableEmployeeList" GridLines="Both">
+            <asp:TableHeaderRow>
+                <asp:TableHeaderCell>コード</asp:TableHeaderCell>
+                <asp:TableHeaderCell>氏名</asp:TableHeaderCell>
+                <asp:TableHeaderCell>氏名（フリガナ）</asp:TableHeaderCell>
+                <asp:TableHeaderCell>性別</asp:TableHeaderCell>
+                <asp:TableHeaderCell>生年月日</asp:TableHeaderCell>
+                <asp:TableHeaderCell>保有資格</asp:TableHeaderCell>
+                <asp:TableHeaderCell>所属部署</asp:TableHeaderCell>
+                <asp:TableHeaderCell>入社日</asp:TableHeaderCell>
+                <asp:TableHeaderCell></asp:TableHeaderCell>
+            </asp:TableHeaderRow>
+        </asp:Table>
     </div>
 </asp:Content>

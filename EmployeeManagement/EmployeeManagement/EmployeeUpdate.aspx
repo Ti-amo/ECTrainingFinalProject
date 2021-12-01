@@ -33,10 +33,6 @@
          </td>  
          <td width="40%">  
              <asp:DropDownList ID="DropDownListGender" runat="server">
-                 <asp:ListItem>不明</asp:ListItem>
-                <asp:ListItem>男性</asp:ListItem>
-                <asp:ListItem>女性</asp:ListItem>
-                <asp:ListItem>その他</asp:ListItem>
              </asp:DropDownList>
          </td>  
      </tr>    
