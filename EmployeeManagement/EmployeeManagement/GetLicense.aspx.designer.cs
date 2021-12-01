@@ -7,10 +7,12 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace EmployeeManagement {
+namespace EmployeeManagement
+{
 
 
-    public partial class GetLicense {
+    public partial class GetLicense
+    {
 
         /// <summary>
         /// Table1 control.
@@ -49,15 +51,6 @@ namespace EmployeeManagement {
         protected global::System.Web.UI.WebControls.TextBox TextBoxDate;
 
         /// <summary>
-        /// ButtonGet control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonGet;
-
-        /// <summary>
         /// ButtonCancel control.
         /// </summary>
         /// <remarks>
@@ -65,5 +58,14 @@ namespace EmployeeManagement {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button ButtonCancel;
+
+        /// <summary>
+        /// ButtonGet control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonGet;
     }
 }
