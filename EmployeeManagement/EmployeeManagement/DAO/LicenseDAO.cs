@@ -75,7 +75,7 @@ namespace EmployeeManagement.DAO {
         public int Insert(LicenseEntity licenseEntity) {
             // SQL文：INSERT句
             string query = @"INSERT INTO t_get_license (emp_cd, license_cd, get_license_date)
-							VALUES (@emp_cd, @license_cd, @get_license_date)";
+							VALUES (@emp_cd, @license_cd, CAST(@get_license_date AS Date))";
 
             // トランザクションの作成
             transaction = connection.BeginTransaction();
@@ -84,9 +84,7 @@ namespace EmployeeManagement.DAO {
             command = new SqlCommand(query, connection, transaction);
             command.Parameters.AddWithValue("@emp_cd", licenseEntity.EmpCode);
             command.Parameters.AddWithValue("@license_cd", licenseEntity.LicenseCode);
-
-            DateTime date = DateTime.ParseExact(licenseEntity.GetLicenseDate, "dd/MM/yyyy", CultureInfo.InvariantCulture);
-            command.Parameters.AddWithValue("@get_license_date", date);
+            command.Parameters.AddWithValue("@get_license_date", licenseEntity.GetLicenseDate);
 
             int recordNumber = command.ExecuteNonQuery(); // 挿入されたレコード数
             transaction.Commit();

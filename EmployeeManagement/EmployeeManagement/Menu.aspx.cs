@@ -12,19 +12,19 @@ namespace EmployeeManagement {
         }
 
         protected void ButtonEmployeeList_Click(object sender, EventArgs e) {
-
+            Response.Redirect(@"EmployeeList.aspx");
         }
 
         protected void ButtonRegisterEmployee_Click(object sender, EventArgs e) {
-
+            Response.Redirect(@"EmployeeRegister.aspx");
         }
 
         protected void ButtonRegisterUser_Click(object sender, EventArgs e) {
-
+            Response.Redirect(@"UserRegister.aspx");
         }
 
         protected void ButtonGetLicense_Click(object sender, EventArgs e) {
-
+            Response.Redirect(@"GetLicense.aspx");
         }
     }
 }

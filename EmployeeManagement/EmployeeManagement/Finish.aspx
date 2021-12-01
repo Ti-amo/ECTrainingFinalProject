@@ -10,11 +10,9 @@
     <form id="form1" runat="server">
         <!-- #include file="Header.inc" -->
 
-        <asp:Image ID="Image1" runat="server" /><br />
-        <br />
-        <div>
-            <asp:Label ID="LabelMsg" runat="server"></asp:Label>
-        </div>
+        <h2>
+            <asp:Label ID="LabelFinish" runat="server"></asp:Label>
+        </h2>
         <asp:Button ID="ButtonBack" runat="server" Text="戻る" OnClick="ButtonBack_Click" />
     </form>
 </body>
