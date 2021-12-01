@@ -12,10 +12,10 @@ namespace EmployeeManagement
         private EmployeeDAO employeeDAO = new EmployeeDAO();
         protected void Page_Load(object sender, EventArgs e)
         {
+            string empCode = Request.QueryString["EmpCode"];
+            employee = employeeDAO.Find(empCode);
             if (!IsPostBack)
             {
-                string empCode = Request.QueryString["EmpCode"];
-                employee = employeeDAO.Find(empCode);
                 FillData();
             }
         }
@@ -65,10 +65,17 @@ namespace EmployeeManagement
                 employee.Section = DropDownListSection.SelectedValue;
                 employeeDAO.Update(employee);
                 // Redirect to done page
+                Session["finish"] = "従業員情報の変更";
+                Session["page"] = "EmployeeList";
+                Response.Redirect("Finish.aspx");
             }
             else
             {
                 // Redirect to error page
+                Session["error"] = "従業員情報の変更";
+                Session["msg"] = "フィールドに内容を入力してください。";
+                Session["page"] = "EmployeeUpdate";
+                Response.Redirect("Error.aspx");
             }
         }
 
