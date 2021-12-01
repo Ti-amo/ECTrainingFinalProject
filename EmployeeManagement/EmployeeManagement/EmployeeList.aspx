@@ -8,17 +8,17 @@
             <asp:Button CssClass="btn btn-warning" runat="server" ID="ButtonUpdate" Text="変更" OnClick="ButtonUpdate_Click" />
             <asp:Button CssClass="btn btn-danger" runat="server" ID="ButtonDelete" Text="削除" OnClick="ButtonDelete_Click" />
         </div>
-        <asp:Table runat="server" ID="TableEmployeeList" GridLines="Both">
+        <asp:Table runat="server" ID="TableEmployeeList" GridLines="Both" Width="100%" >
             <asp:TableHeaderRow>
-                <asp:TableHeaderCell>コード</asp:TableHeaderCell>
-                <asp:TableHeaderCell>氏名</asp:TableHeaderCell>
-                <asp:TableHeaderCell>氏名（フリガナ）</asp:TableHeaderCell>
-                <asp:TableHeaderCell>性別</asp:TableHeaderCell>
-                <asp:TableHeaderCell>生年月日</asp:TableHeaderCell>
-                <asp:TableHeaderCell>保有資格</asp:TableHeaderCell>
-                <asp:TableHeaderCell>所属部署</asp:TableHeaderCell>
-                <asp:TableHeaderCell>入社日</asp:TableHeaderCell>
-                <asp:TableHeaderCell></asp:TableHeaderCell>
+                <asp:TableHeaderCell BorderStyle="Solid" BorderColor="Black" BorderWidth="1">コード</asp:TableHeaderCell>
+                <asp:TableHeaderCell BorderStyle="Solid" BorderColor="Black" BorderWidth="1">氏名</asp:TableHeaderCell>
+                <asp:TableHeaderCell BorderStyle="Solid" BorderColor="Black" BorderWidth="1">氏名（フリガナ）</asp:TableHeaderCell>
+                <asp:TableHeaderCell BorderStyle="Solid" BorderColor="Black" BorderWidth="1">性別</asp:TableHeaderCell>
+                <asp:TableHeaderCell BorderStyle="Solid" BorderColor="Black" BorderWidth="1">生年月日</asp:TableHeaderCell>
+                <asp:TableHeaderCell BorderStyle="Solid" BorderColor="Black" BorderWidth="1">保有資格</asp:TableHeaderCell>
+                <asp:TableHeaderCell BorderStyle="Solid" BorderColor="Black" BorderWidth="1">所属部署</asp:TableHeaderCell>
+                <asp:TableHeaderCell BorderStyle="Solid" BorderColor="Black" BorderWidth="1">入社日</asp:TableHeaderCell>
+                <asp:TableHeaderCell BorderStyle="Solid" BorderColor="Black" BorderWidth="1"></asp:TableHeaderCell>
             </asp:TableHeaderRow>
         </asp:Table>
     </div>

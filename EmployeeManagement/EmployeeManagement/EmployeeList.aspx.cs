@@ -2,6 +2,7 @@
 using EmployeeManagement.Entity;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Web.UI.WebControls;
 
 namespace EmployeeManagement
@@ -27,53 +28,80 @@ namespace EmployeeManagement
                 {
                     Text = employee.EmpCode
                 };
+                tc.BorderColor = Color.Black;
+                tc.BorderStyle = BorderStyle.Solid;
+                tc.BorderWidth = 1;
                 tr.Cells.Add(tc);
                 // 氏名のセル
                 tc = new TableCell
                 {
                     Text = employee.Name
                 };
+                tc.BorderColor = Color.Black;
+                tc.BorderStyle = BorderStyle.Solid;
+                tc.BorderWidth = 1;
                 tr.Cells.Add(tc);
                 // 氏名（フリガナ）のセル
                 tc = new TableCell
                 {
                     Text = employee.NameKana
                 };
+                tc.BorderColor = Color.Black;
+                tc.BorderStyle = BorderStyle.Solid;
+                tc.BorderWidth = 1;
                 tr.Cells.Add(tc);
                 // 性別のセル
                 tc = new TableCell
                 {
                     Text = employee.Gender
                 };
+                tc.BorderColor = Color.Black;
+                tc.BorderStyle = BorderStyle.Solid;
+                tc.BorderWidth = 1;
                 tr.Cells.Add(tc);
                 // 生年月日のセル
                 tc = new TableCell
                 {
                     Text = employee.BirthDate
                 };
+                tc.BorderColor = Color.Black;
+                tc.BorderStyle = BorderStyle.Solid;
+                tc.BorderWidth = 1;
                 tr.Cells.Add(tc);
                 // 保有資格のセル
                 tc = new TableCell
                 {
                     Text = string.Join(",", employee.License.ToArray())
                 };
+                tc.BorderColor = Color.Black;
+                tc.BorderStyle = BorderStyle.Solid;
+                tc.BorderWidth = 1;
                 tr.Cells.Add(tc);
                 // 所属部署のセル
                 tc = new TableCell
                 {
                     Text = employee.Section
                 };
+                tc.BorderColor = Color.Black;
+                tc.BorderStyle = BorderStyle.Solid;
+                tc.BorderWidth = 1;
                 tr.Cells.Add(tc);
                 // 入社日のセル
                 tc = new TableCell
                 {
                     Text = employee.EmpDate
                 };
+                tc.BorderColor = Color.Black;
+                tc.BorderStyle = BorderStyle.Solid;
+                tc.BorderWidth = 1;
                 tr.Cells.Add(tc);
                 // チェックボックスのセル
                 tc = new TableCell();
                 CheckBox checkBox = new CheckBox();
                 tc.Controls.Add(checkBox);
+                tc.BorderColor = Color.Black;
+                tc.BorderStyle = BorderStyle.Solid;
+                tc.BorderWidth = 1;
                 tr.Cells.Add(tc);
                 // 行を追加する
                 TableEmployeeList.Rows.Add(tr);
@@ -103,26 +131,32 @@ namespace EmployeeManagement
             }
             else
             {
-                Response.Redirect("EmployeeUpdate.aspx?EmpCode=" + empCode);
+                Session["EmpCode"] = empCode;
+                Response.Redirect("EmployeeUpdate.aspx");
             }
         }
 
         protected void ButtonDelete_Click(object sender, EventArgs e)
         {
+            bool isChecked = false;
             for (int i = 1; i < TableEmployeeList.Rows.Count; i++)
             {
                 CheckBox checkBox = TableEmployeeList.Rows[i].Cells[8].Controls[0] as CheckBox;
                 if (checkBox.Checked)
                 {
+                    isChecked = true;
                     string empCode = TableEmployeeList.Rows[i].Cells[0].Text;
                     EmployeeEntity employee = employees.Find(emp => emp.EmpCode.Equals(empCode));
                     employeeDAO.Delete(employee);
                 }
             }
-            // Redirect to done page
-            Session["finish"] = "従業員削除";
-            Session["page"] = "EmployeeList";
-            Response.Redirect("Finish.aspx");
+            if (isChecked)
+            {
+                // Redirect to done page
+                Session["finish"] = "従業員削除";
+                Session["page"] = "EmployeeList";
+                Response.Redirect("Finish.aspx");
+            }
         }
     }
 }
