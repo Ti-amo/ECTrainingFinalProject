@@ -8,18 +8,35 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
     <link rel="stylesheet" href="./Style/Index.css" />
-    <link href="Content/bootstrap.min.css" rel="stylesheet"/>
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
     <script src="Scripts/bootstrap.min.js"></script>
 </head>
 <body>
     <form id="form1" runat="server">
         <div class="home-container">
-            <!--#include file='Header.inc'-->
+
+            <%if (login)
+                {%>
+            <div class="wrap-header header-login">
+                <div class="header-text">ブームマネージャーを作成しましょう</div>
+                <div>
+                    <asp:Label CssClass="hello-text" ID="LabelHello" runat="server"></asp:Label>
+                    <asp:Button CssClass="btn btn-outline-warning" ID="ButtonLogout" runat="server" OnClick="ButtonLogout_Click" Text="ログアウト" />
+
+                </div>
+            </div>
+            <%}
+                else
+                {%>
+            <div class="wrap-header">
+                <div class="header-text">ブームマネージャーを作成しましょう</div>
+            </div>
+
+            <%} %>
             <div class="page-container">
                 <img src="./Assets/Boom.png" alt="manager" />
             </div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-                
             </asp:ContentPlaceHolder>
         </div>
     </form>
