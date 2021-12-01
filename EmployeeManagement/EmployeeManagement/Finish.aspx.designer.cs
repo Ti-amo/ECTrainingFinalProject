@@ -7,10 +7,12 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace EmployeeManagement {
+namespace EmployeeManagement
+{
 
 
-    public partial class Finish {
+    public partial class Finish
+    {
 
         /// <summary>
         /// form1 control.
