@@ -12,11 +12,14 @@ namespace EmployeeManagement
         private EmployeeDAO employeeDAO = new EmployeeDAO();
         protected void Page_Load(object sender, EventArgs e)
         {
-            string empCode = Request.QueryString["EmpCode"];
-            employee = employeeDAO.Find(empCode);
-            if (!IsPostBack)
+            if(Session["EmpCode"] != null)
             {
-                FillData();
+                string empCode = (string)Session["EmpCode"];
+                employee = employeeDAO.Find(empCode);
+                if (!IsPostBack)
+                {
+                    FillData();
+                }
             }
         }
         private void FillData()
@@ -37,6 +40,7 @@ namespace EmployeeManagement
             DropDownListGender.DataValueField = "Key";
             DropDownListGender.DataSource = dGender;
             DropDownListGender.DataBind();
+            DropDownListGender.SelectedValue = DropDownListGender.Items.FindByText(employee.Gender).Value;
 
             Dictionary<string, string> dSection = new Dictionary<string, string>();
             List<SectionItem> sectionList = listDao.GetSectionList();
@@ -50,6 +54,7 @@ namespace EmployeeManagement
             DropDownListSection.DataValueField = "Key";
             DropDownListSection.DataSource = dSection;
             DropDownListSection.DataBind();
+            DropDownListSection.SelectedValue = DropDownListSection.Items.FindByText(employee.Section).Value;
         }
         protected void ButtonCancel_Click(object sender, EventArgs e)
         {
@@ -68,6 +73,7 @@ namespace EmployeeManagement
                 Session["finish"] = "従業員情報の変更";
                 Session["page"] = "EmployeeList";
                 Response.Redirect("Finish.aspx");
+                Session.Remove("EmpCode");
             }
             else
             {

@@ -19,10 +19,10 @@
 				<div id="bar3" class="bar"></div>
 			</div>
 			<ul class="nav" id="nav">
-				<li><a href="#">従業員一覧</a></li>
-				<li><a href="#">従業員登録</a></li>
-				<li><a href="#">利用者登録</a></li>
-				<li><a href="#">資格取得</a></li>
+				<li><a href="EmployeeList.aspx">従業員一覧</a></li>
+				<li><a href="EmployeeRegister.aspx">従業員登録</a></li>
+				<li><a href="UserRegister.aspx">利用者登録</a></li>
+				<li><a href="GetLicense.aspx">資格取得</a></li>
 			</ul>
 		</div>
 </body>
