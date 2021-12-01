@@ -87,9 +87,10 @@
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="Error.aspx" />
-    <Content Include="Include\Hamburger.inc" />
+    <Content Include="Include\HamburgerMenu.inc" />
     <Content Include="EmployeeList.aspx" />
     <Content Include="Header.inc" />
+    <Content Include="Include\Script.js" />
     <Content Include="Index.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -97,6 +98,7 @@
     <Content Include="Scripts\bootstrap.esm.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Style\HamburgerStyle.css" />
     <Content Include="Style\Index.css" />
     <Content Include="EmployeeRegister.aspx" />
     <Content Include="EmployeeUpdate.aspx" />
