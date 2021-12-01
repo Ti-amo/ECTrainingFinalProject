@@ -63,9 +63,9 @@ namespace EmployeeManagement.DAO {
                     Name = (string)dataReader["name"],
                     NameKana = (string)dataReader["name_kana"],
                     Gender = (string)dataReader["gender_nm"],
-                    BirthDate = (string)dataReader["birth_date"],
+                    BirthDate = Convert.ToDateTime(dataReader["birth_date"]).ToString("yyyy/MM/dd"),
                     Section = (string)dataReader["section_nm"],
-                    EmpDate = (string)dataReader["emp_date"],
+                    EmpDate = Convert.ToDateTime(dataReader["emp_date"]).ToString("yyyy/MM/dd")
                 };
                 employeeEntity.License = licenseDAO.FindAll(employeeEntity.EmpCode);
 
@@ -110,9 +110,9 @@ namespace EmployeeManagement.DAO {
                     Name = (string)dataReader["name"],
                     NameKana = (string)dataReader["name_kana"],
                     Gender = (string)dataReader["gender_nm"],
-                    BirthDate = (string)dataReader["birth_date"],
+                    BirthDate = Convert.ToDateTime(dataReader["birth_date"]).ToString("yyyy/MM/dd"),
                     Section = (string)dataReader["section_nm"],
-                    EmpDate = (string)dataReader["emp_date"]
+                    EmpDate = Convert.ToDateTime(dataReader["emp_date"]).ToString("yyyy/MM/dd")
                 };
                 employeeEntity.License = licenseDAO.FindAll(employeeEntity.EmpCode);
             }
@@ -131,7 +131,7 @@ namespace EmployeeManagement.DAO {
         public int Insert(EmployeeEntity employeeEntity) {
             // SQL文：INSERT句
             string query = @"INSERT INTO m_employee (emp_cd, name, name_kana, gender_cd, birth_date, section_cd, emp_date)
-							VALUES (@emp_cd, @name, @name_kana, @gender_cd, @birth_date, @section_cd, @emp_date)";
+							VALUES (@emp_cd, @name, @name_kana, @gender_cd, CAST(@birth_date AS Date), @section_cd, CAST(@emp_date AS Date))";
 
             // トランザクションの作成
             transaction = connection.BeginTransaction();
@@ -142,12 +142,9 @@ namespace EmployeeManagement.DAO {
             command.Parameters.AddWithValue("@name", employeeEntity.Name);
             command.Parameters.AddWithValue("@name_kana", employeeEntity.NameKana);
             command.Parameters.AddWithValue("@gender_cd", employeeEntity.Gender);
+            command.Parameters.AddWithValue("@birth_date", employeeEntity.BirthDate);
             command.Parameters.AddWithValue("@section_cd", employeeEntity.Section);
-
-            DateTime date = DateTime.ParseExact(employeeEntity.BirthDate, "dd/MM/yyyy", CultureInfo.InvariantCulture);
-            command.Parameters.AddWithValue("@birth_date", date);
-            date = DateTime.ParseExact(employeeEntity.EmpDate, "dd/MM/yyyy", CultureInfo.InvariantCulture);
-            command.Parameters.AddWithValue("@emp_date", date);
+            command.Parameters.AddWithValue("@emp_date", employeeEntity.EmpDate);
 
             int recordNumber = command.ExecuteNonQuery(); // 挿入されたレコード数
             transaction.Commit();
@@ -165,7 +162,7 @@ namespace EmployeeManagement.DAO {
         public int Update(EmployeeEntity employeeEntity) {
             // SQL文：UPDATE句
             string query = @"UPDATE m_employee 
-							SET name = @name, name_kana = @name_kana, gender_cd = @gender_cd, birth_date = @birth_date, section_cd = @section_cd, emp_date = @emp_date 
+							SET name = @name, name_kana = @name_kana, gender_cd = @gender_cd, birth_date = CAST(@birth_date AS Date), section_cd = @section_cd, emp_date = CAST(@emp_date AS Date) 
 							WHERE emp_cd = @emp_cd";
 
             // トランザクションの作成
@@ -177,12 +174,9 @@ namespace EmployeeManagement.DAO {
             command.Parameters.AddWithValue("@name", employeeEntity.Name);
             command.Parameters.AddWithValue("@name_kana", employeeEntity.NameKana);
             command.Parameters.AddWithValue("@gender_cd", employeeEntity.Gender);
+            command.Parameters.AddWithValue("@birth_date", employeeEntity.BirthDate);
             command.Parameters.AddWithValue("@section_cd", employeeEntity.Section);
-
-            DateTime date = DateTime.ParseExact(employeeEntity.BirthDate, "dd/MM/yyyy", CultureInfo.InvariantCulture);
-            command.Parameters.AddWithValue("@birth_date", date);
-            date = DateTime.ParseExact(employeeEntity.EmpDate, "dd/MM/yyyy", CultureInfo.InvariantCulture);
-            command.Parameters.AddWithValue("@emp_date", date);
+            command.Parameters.AddWithValue("@emp_date", employeeEntity.EmpDate);
 
             int recordNumber = command.ExecuteNonQuery(); // 更新されたレコード数
             transaction.Commit();
