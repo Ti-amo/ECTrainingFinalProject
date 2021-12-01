@@ -35,9 +35,13 @@
             <%} %>
             <div class="page-container">
                 <img src="./Assets/Boom.png" alt="manager" />
-            </div>
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                <div class="main-container">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
+                </div>
+                
+            </div>
+            
         </div>
     </form>
 </body>
