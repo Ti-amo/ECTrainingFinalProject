@@ -93,5 +93,41 @@ namespace EmployeeManagement.DAO {
 
             return recordNumber;
         }
+
+        /// <summary>
+        /// 指定した資格取得を抽出する
+        /// </summary>
+        /// <param name="empCode">従業員コード</param>
+        /// <param name="licenseCode">資格コード</param>
+        /// <returns>指定した資格取得</returns>
+        public LicenseEntity Find(string empCode, string licenseCode) {
+            // SQL文：SELECT句
+            string query = @"SELECT * 
+                            FROM t_get_license 
+                            WHERE (emp_cd = @emp_cd AND license_cd = @license_cd)";
+
+            // コマンドの作成
+            command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@emp_cd", empCode);
+            command.Parameters.AddWithValue("@license_cd", licenseCode);
+
+            // データリーダーの作成
+            dataReader = command.ExecuteReader();
+
+            LicenseEntity licenseEntity = null;
+            // データを１行ずつ抽出する
+            while (dataReader.Read()) {
+                licenseEntity = new LicenseEntity {
+                    EmpCode = (string)dataReader["emp_cd"],
+                    LicenseCode = (string)dataReader["license_cd"],
+                    GetLicenseDate = Convert.ToDateTime(dataReader["get_license_date"]).ToString("yyyy/MM/dd")
+                };
+            }
+
+            command.Dispose();
+            dataReader.Close();
+
+            return licenseEntity;
+        }
     }
 }

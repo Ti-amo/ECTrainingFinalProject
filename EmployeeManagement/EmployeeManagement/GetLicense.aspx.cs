@@ -31,26 +31,35 @@ namespace EmployeeManagement {
         protected void ButtonGet_Click(object sender, EventArgs e) {
             if (TextBoxEmpCode.Text != "" && TextBoxDate.Text != "") {
                 EmployeeDAO employeeDao = new EmployeeDAO();
-                if (employeeDao.Find(TextBoxEmpCode.Text) != null) {
-                    LicenseEntity licenseEntity = new LicenseEntity {
-                        EmpCode = TextBoxEmpCode.Text,
-                        LicenseCode = DropDownListLicense.SelectedValue,
-                        GetLicenseDate = TextBoxDate.Text
-                    };
-
-                    LicenseDAO licenseDao = new LicenseDAO();
-                    licenseDao.Insert(licenseEntity);
-
-                    Session["finish"] = "資格取得";
-                    Session["page"] = "GetLicense";
-
-                    Response.Redirect(@"Finish.aspx");
-                } else {
+                if (employeeDao.Find(TextBoxEmpCode.Text) == null) {
                     Session["error"] = "資格取得";
                     Session["msg"] = "従業員コードが存在しません。";
                     Session["page"] = "GetLicense";
 
                     Response.Redirect(@"Error.aspx");
+                } else {
+                    LicenseDAO licenseDao = new LicenseDAO();
+
+                    if (licenseDao.Find(TextBoxEmpCode.Text, DropDownListLicense.SelectedValue) == null) {
+                        LicenseEntity licenseEntity = new LicenseEntity {
+                            EmpCode = TextBoxEmpCode.Text,
+                            LicenseCode = DropDownListLicense.SelectedValue,
+                            GetLicenseDate = TextBoxDate.Text
+                        };
+
+                        licenseDao.Insert(licenseEntity);
+
+                        Session["finish"] = "資格取得";
+                        Session["page"] = "GetLicense";
+
+                        Response.Redirect(@"Finish.aspx");
+                    } else {
+                        Session["error"] = "資格取得";
+                        Session["msg"] = "資格取得が存在します。";
+                        Session["page"] = "GetLicense";
+
+                        Response.Redirect(@"Error.aspx");
+                    }
                 }
             }
         }
