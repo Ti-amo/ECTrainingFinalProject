@@ -42,7 +42,16 @@ namespace EmployeeManagement
                 newUser.Password = TextBoxPassword.Text;
                 UserDAO userDAO = new UserDAO();
                 userDAO.Insert(newUser);
-                Response.Redirect("Finish.aspx");
+                Session["finish"] = "ユーザ登録";
+                Session["page"] = "UserRegister";
+                Response.Redirect(@"Finish.aspx");
+            }
+            else
+            {
+                Session["error"] = "ユーザ登録";
+                Session["msg"] = "ユーザ情報が登録できません。";
+                Session["page"] = "UserRegister";
+                Response.Redirect(@"Error.aspx");
             }
         }
     }
