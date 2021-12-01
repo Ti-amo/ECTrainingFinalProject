@@ -33,6 +33,7 @@ namespace EmployeeManagement
         protected void ButtonLogout_Click(object sender, EventArgs e)
         {
             Session.Remove("login");
+            Session.Remove("user");
             Response.Redirect(@"Logout.aspx");
         }
     }
