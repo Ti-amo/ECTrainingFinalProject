@@ -7,10 +7,8 @@ using System.Linq;
 using System.Web;
 using EmployeeManagement.Entity;
 
-namespace EmployeeManagement.DAO
-{
-    public class EmployeeDAO
-    {
+namespace EmployeeManagement.DAO {
+    public class EmployeeDAO {
         /// <summary>
         /// データベースとのコネクション
         /// </summary>
@@ -28,11 +26,9 @@ namespace EmployeeManagement.DAO
         /// </summary>
         private SqlDataReader dataReader;
 
-        public EmployeeDAO()
-        {
+        public EmployeeDAO() {
             // データベース接続の作成
-            connection = new SqlConnection
-            {
+            connection = new SqlConnection {
                 ConnectionString = ConfigurationManager.ConnectionStrings["employeedb"].ConnectionString
             };
             connection.Open();
@@ -42,8 +38,7 @@ namespace EmployeeManagement.DAO
         /// すべての従業員を抽出する
         /// </summary>
         /// <returns>すべての従業員</returns>
-        public List<EmployeeEntity> FindAll()
-        {
+        public List<EmployeeEntity> FindAll() {
             // すべての従業員のリスト
             List<EmployeeEntity> employeeList = new List<EmployeeEntity>();
 
@@ -61,11 +56,9 @@ namespace EmployeeManagement.DAO
             LicenseDAO licenseDAO = new LicenseDAO();
 
             // データを１行ずつ抽出する
-            while (dataReader.Read())
-            {
+            while (dataReader.Read()) {
                 // １従業員ずつ抽出する
-                EmployeeEntity employeeEntity = new EmployeeEntity
-                {
+                EmployeeEntity employeeEntity = new EmployeeEntity {
                     EmpCode = (string)dataReader["emp_cd"],
                     Name = (string)dataReader["name"],
                     NameKana = (string)dataReader["name_kana"],
@@ -91,8 +84,7 @@ namespace EmployeeManagement.DAO
         /// </summary>
         /// <param name="empCode">指定した従業員コード</param>
         /// <returns>指定した従業員</returns>
-        public EmployeeEntity Find(string empCode)
-        {
+        public EmployeeEntity Find(string empCode) {
             // SQL文：SELECT句
             string query = @"SELECT * 
                             FROM m_employee e
@@ -111,11 +103,9 @@ namespace EmployeeManagement.DAO
 
             EmployeeEntity employeeEntity = null;
             // データを１行ずつ抽出する
-            while (dataReader.Read())
-            {
+            while (dataReader.Read()) {
                 // １従業員ずつ抽出する
-                employeeEntity = new EmployeeEntity
-                {
+                employeeEntity = new EmployeeEntity {
                     EmpCode = (string)dataReader["emp_cd"],
                     Name = (string)dataReader["name"],
                     NameKana = (string)dataReader["name_kana"],
@@ -138,8 +128,7 @@ namespace EmployeeManagement.DAO
         /// </summary>
         /// <param name="employeeEntity">挿入されたエンティティ</param>
         /// <returns>挿入されたレコード数</returns>
-        public int Insert(EmployeeEntity employeeEntity)
-        {
+        public int Insert(EmployeeEntity employeeEntity) {
             // SQL文：INSERT句
             string query = @"INSERT INTO m_employee (emp_cd, name, name_kana, gender_cd, birth_date, section_cd, emp_date)
 							VALUES (@emp_cd, @name, @name_kana, @gender_cd, CAST(@birth_date AS Date), @section_cd, CAST(@emp_date AS Date))";
@@ -153,14 +142,10 @@ namespace EmployeeManagement.DAO
             command.Parameters.AddWithValue("@name", employeeEntity.Name);
             command.Parameters.AddWithValue("@name_kana", employeeEntity.NameKana);
             command.Parameters.AddWithValue("@gender_cd", employeeEntity.Gender);
+            command.Parameters.AddWithValue("@birth_date", employeeEntity.BirthDate);
             command.Parameters.AddWithValue("@section_cd", employeeEntity.Section);
-            //DateTime date = DateTime.ParseExact(employeeEntity.BirthDate, "dd/MM/yyyy", CultureInfo.InvariantCulture);
-            DateTime birthDate = Convert.ToDateTime(employeeEntity.BirthDate);
-            command.Parameters.AddWithValue("@birth_date", birthDate);
-            //DateTime empDate = DateTime.ParseExact(employeeEntity.EmpDate, "dd/MM/yyyy", CultureInfo.InvariantCulture);
-            DateTime empDate = Convert.ToDateTime(employeeEntity.EmpDate);
+            command.Parameters.AddWithValue("@emp_date", employeeEntity.EmpDate);
 
-            command.Parameters.AddWithValue("@emp_date", empDate);
             int recordNumber = command.ExecuteNonQuery(); // 挿入されたレコード数
             transaction.Commit();
             transaction.Dispose();
@@ -174,8 +159,7 @@ namespace EmployeeManagement.DAO
         /// </summary>
         /// <param name="employeeEntity">更新されたエンティティ</param>
         /// <returns>更新されたレコード数</returns>
-        public int Update(EmployeeEntity employeeEntity)
-        {
+        public int Update(EmployeeEntity employeeEntity) {
             // SQL文：UPDATE句
             string query = @"UPDATE m_employee 
 							SET name = @name, name_kana = @name_kana, gender_cd = @gender_cd, birth_date = CAST(@birth_date AS Date), section_cd = @section_cd, emp_date = CAST(@emp_date AS Date) 
@@ -207,8 +191,7 @@ namespace EmployeeManagement.DAO
         /// </summary>
         /// <param name="employeeEntity">削除されたエンティティ</param>
         /// <returns>削除されたレコード数</returns>
-        public int Delete(EmployeeEntity employeeEntity)
-        {
+        public int Delete(EmployeeEntity employeeEntity) {
             // SQL文：DELETE句
             string query = @"DELETE FROM t_get_license 
 							WHERE emp_cd = @emp_cd";

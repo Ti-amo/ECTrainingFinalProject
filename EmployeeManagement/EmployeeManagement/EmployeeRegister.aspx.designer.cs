@@ -7,12 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace EmployeeManagement
-{
+namespace EmployeeManagement {
 
 
-    public partial class EmployeeRegister
-    {
+    public partial class EmployeeRegister {
 
         /// <summary>
         /// lbEmployeeCode control.
@@ -123,13 +121,13 @@ namespace EmployeeManagement
         protected global::System.Web.UI.WebControls.DropDownList DropDownListSection;
 
         /// <summary>
-        /// lbDate control.
+        /// lbEmpDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbDate;
+        protected global::System.Web.UI.WebControls.Label lbEmpDate;
 
         /// <summary>
         /// TextBoxEmpDate control.

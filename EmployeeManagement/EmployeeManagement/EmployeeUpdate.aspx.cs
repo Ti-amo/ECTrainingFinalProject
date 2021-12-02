@@ -31,6 +31,8 @@ namespace EmployeeManagement {
         private void FillData() {
             TextBoxName.Text = employee.Name;
             TextBoxNameKana.Text = employee.NameKana;
+            TextBoxDateOfBirth.Text = Convert.ToDateTime(employee.BirthDate).ToString("yyyy/MM/dd");
+            TextBoxEmpDate.Text = Convert.ToDateTime(employee.EmpDate).ToString("yyyy/MM/dd");
 
             Dictionary<int, string> dGender = new Dictionary<int, string>();
             ListDAO listDao = new ListDAO();
@@ -76,16 +78,26 @@ namespace EmployeeManagement {
         /// <param name="e"></param>
         protected void ButtonRegister_Click(object sender, EventArgs e) {
             if (IsValidData()) {
-                employee.Name = TextBoxName.Text;
-                employee.NameKana = TextBoxNameKana.Text;
-                employee.Gender = DropDownListGender.SelectedValue;
-                employee.Section = DropDownListSection.SelectedValue;
-                employeeDAO.Update(employee);
-                // Redirect to done page
-                Session["finish"] = "従業員情報の変更";
-                Session["page"] = "EmployeeList";
-                Session.Remove("EmpCode");
-                Response.Redirect("Finish.aspx");
+                if (string.IsNullOrWhiteSpace(TextBoxDateOfBirth.Text) || string.IsNullOrWhiteSpace(TextBoxEmpDate.Text)) {
+                    // Redirect to error page
+                    Session["error"] = "従業員情報の変更";
+                    Session["msg"] = "生年月日または入社日を入力しませんでした。";
+                    Session["page"] = "EmployeeUpdate";
+                    Response.Redirect("Error.aspx");
+                } else {
+                    employee.Name = TextBoxName.Text;
+                    employee.NameKana = TextBoxNameKana.Text;
+                    employee.Gender = DropDownListGender.SelectedValue;
+                    employee.BirthDate = TextBoxDateOfBirth.Text;
+                    employee.Section = DropDownListSection.SelectedValue;
+                    employee.EmpDate = TextBoxEmpDate.Text;
+                    employeeDAO.Update(employee);
+                    // Redirect to done page
+                    Session["finish"] = "従業員情報の変更";
+                    Session["page"] = "EmployeeList";
+                    Session.Remove("EmpCode");
+                    Response.Redirect("Finish.aspx");
+                }
             } else {
                 // Redirect to error page
                 Session["error"] = "従業員情報の変更";

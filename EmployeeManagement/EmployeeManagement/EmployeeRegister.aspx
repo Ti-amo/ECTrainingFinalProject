@@ -57,7 +57,7 @@
         </tr>
         <tr>
             <td width="35%">
-                <asp:Label ID="lbDate" runat="server" Text="入社日"></asp:Label>
+                <asp:Label ID="lbEmpDate" runat="server" Text="入社日"></asp:Label>
             </td>
             <td width="40%">
                 <asp:TextBox ID="TextBoxEmpDate" runat="server" placeholder="mm/dd/yyyy" TextMode="Date" ReadOnly="false"></asp:TextBox>
