@@ -31,22 +31,36 @@
         </tr>
         <tr>
             <td width="35%">
+                <asp:Label ID="lbDateOfBirth" runat="server" Text="生年月日"></asp:Label>
+            </td>
+            <td width="40%">
+                <asp:TextBox ID="TextBoxDateOfBirth" runat="server" TextMode="Date">
+                </asp:TextBox>
+            </td>
+        </tr>
+        <tr>
+            <td width="35%">
                 <asp:Label ID="lbSection" runat="server" Text="所属部署"></asp:Label>
             </td>
             <td width="40%">
                 <asp:DropDownList ID="DropDownListSection" runat="server">
-                    <asp:ListItem>管理部</asp:ListItem>
-                    <asp:ListItem>総務部</asp:ListItem>
-                    <asp:ListItem>開発部</asp:ListItem>
-                    <asp:ListItem>営業部</asp:ListItem>
                 </asp:DropDownList>
+            </td>
+        </tr>
+        <tr>
+            <td width="35%">
+                <asp:Label ID="lbEmpDate" runat="server" Text="入社日"></asp:Label>
+            </td>
+            <td width="40%">
+                <asp:TextBox ID="TextBoxEmpDate" runat="server" TextMode="Date">
+                </asp:TextBox>
             </td>
         </tr>
         <tr>
             <td width="35%"></td>
             <td width="40%" style="height: 100px">
                 <asp:Button CssClass="btn btn-danger" ID="ButtonCancel" runat="server" Text="キャンセル" Width="120px" OnClick="ButtonCancel_Click" />
-                <asp:Button CssClass="btn btn-primary" ID="ButtonRegister" runat="server" Text="登録" Width="120px" OnClick="ButtonRegister_Click" />
+                <asp:Button CssClass="btn btn-primary" ID="ButtonRegister" runat="server" Text="変更" Width="120px" OnClick="ButtonRegister_Click" />
             </td>
         </tr>
     </table>

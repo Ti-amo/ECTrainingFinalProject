@@ -7,12 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace EmployeeManagement
-{
+namespace EmployeeManagement {
 
 
-    public partial class EmployeeUpdate
-    {
+    public partial class EmployeeUpdate {
 
         /// <summary>
         /// lbName control.
@@ -69,6 +67,24 @@ namespace EmployeeManagement
         protected global::System.Web.UI.WebControls.DropDownList DropDownListGender;
 
         /// <summary>
+        /// lbDateOfBirth control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbDateOfBirth;
+
+        /// <summary>
+        /// TextBoxDateOfBirth control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBoxDateOfBirth;
+
+        /// <summary>
         /// lbSection control.
         /// </summary>
         /// <remarks>
@@ -85,6 +101,24 @@ namespace EmployeeManagement
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList DropDownListSection;
+
+        /// <summary>
+        /// lbEmpDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbEmpDate;
+
+        /// <summary>
+        /// TextBoxEmpDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBoxEmpDate;
 
         /// <summary>
         /// ButtonCancel control.
