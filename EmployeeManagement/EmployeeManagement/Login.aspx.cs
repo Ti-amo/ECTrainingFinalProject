@@ -11,11 +11,11 @@ using System.Web.UI.WebControls;
 namespace EmployeeManagement {
     public partial class Login : System.Web.UI.Page {
         protected void Page_Load(object sender, EventArgs e) {
-            
+
         }
 
         protected void ButtonLogin_Click(object sender, EventArgs e) {
-            if (TextBoxUserID.Text != "" && TextBoxPassword.Text != "") {
+            if (!string.IsNullOrWhiteSpace(TextBoxUserID.Text) && !string.IsNullOrWhiteSpace(TextBoxPassword.Text)) {
                 try {
                     UserDAO userDao = new UserDAO();
 

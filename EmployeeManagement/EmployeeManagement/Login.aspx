@@ -3,6 +3,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div>
         <h2 class="main-title">ログイン</h2>
+        <br />
 
         <asp:Label AssociatedControlID="TextBoxUserID" runat="server" Text="ユーザＩＤ"></asp:Label>
         <asp:TextBox ID="TextBoxUserID" runat="server"></asp:TextBox><br />

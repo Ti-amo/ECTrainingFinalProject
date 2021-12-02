@@ -7,12 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace EmployeeManagement
-{
+namespace EmployeeManagement {
 
 
-    public partial class GetLicense
-    {
+    public partial class GetLicense {
 
         /// <summary>
         /// Table1 control.
@@ -24,13 +22,13 @@ namespace EmployeeManagement
         protected global::System.Web.UI.WebControls.Table Table1;
 
         /// <summary>
-        /// TextBoxEmpCode control.
+        /// DropDownListEmp control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxEmpCode;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownListEmp;
 
         /// <summary>
         /// DropDownListLicense control.

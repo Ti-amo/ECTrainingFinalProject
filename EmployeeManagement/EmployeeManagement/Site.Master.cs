@@ -6,37 +6,29 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace EmployeeManagement
-{
-    public partial class Site : System.Web.UI.MasterPage
-    {
+namespace EmployeeManagement {
+    public partial class Site : System.Web.UI.MasterPage {
         public bool login = false;
-        protected void Page_Load(object sender, EventArgs e)
-        {
+
+        protected void Page_Load(object sender, EventArgs e) {
             string pageUrl = HttpContext.Current.Request.Url.AbsoluteUri;
-            if (Session["login"] == null && !pageUrl.Contains("Login"))
-            {
+            if (Session["login"] == null && !pageUrl.Contains("Login") && !pageUrl.Contains("Logout")) {
                 Response.Redirect(@"Login.aspx");
-            }
-            if (Session["login"] != null)
-            {
+            } else if (Session["login"] != null) {
                 UserEntity user = (UserEntity)Session["user"];
                 login = true;
-                int date = int.Parse(DateTime.Now.ToString("HH", System.Globalization.DateTimeFormatInfo.InvariantInfo));
+                int hour = int.Parse(DateTime.Now.ToString("HH", System.Globalization.DateTimeFormatInfo.InvariantInfo));
                 string msg;
-                if (date > 0 && date <= 10)
-                {
+                if (hour > 0 && hour <= 10) {
                     msg = "おはようございます、";
-                } else if (date > 10 && date <= 17)
-                {
+                } else if (hour > 10 && hour <= 17) {
                     msg = "こんにちは、";
                 } else msg = "こんばんは、";
                 LabelHello.Text = msg + user.UserId + "さん";
             }
         }
 
-        protected void ButtonLogout_Click(object sender, EventArgs e)
-        {
+        protected void ButtonLogout_Click(object sender, EventArgs e) {
             Session.Remove("login");
             Session.Remove("user");
             Response.Redirect(@"Logout.aspx");
