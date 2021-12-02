@@ -157,6 +157,14 @@ namespace EmployeeManagement
                 Session["page"] = "EmployeeList";
                 Response.Redirect("Finish.aspx");
             }
+            else
+            {
+                // Redirect to error page
+                Session["error"] = "従業員削除";
+                Session["msg"] = "従業員を一人選択してください。";
+                Session["page"] = "EmployeeList";
+                Response.Redirect("Error.aspx");
+            }
         }
     }
 }
