@@ -6,24 +6,35 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
 }
 
-    .page-container img {
-        width: fit-content;
-    }
-
-    .page-container::after {
-        content: "";
-        background-image: url("../Assets/background.jpg");
-        opacity: 0.5;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
-        position: absolute;
-        z-index: -1;
-        background-size: contain;
-    }
+.logo {
+    width: fit-content;
+}
+.background {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: calc(100% + 24px);
+    min-height: calc(100vh - 80px);
+    z-index: -1;
+    opacity: 0.5;
+    background-size: cover;
+}
+/*.page-container::after {
+    content: "";
+    background-image: url("../Assets/background.jpg");
+    opacity: 0.5;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+    background-size: contain;
+}*/
 
 .wrap-header {
     background-image: url("../Assets/header.jpg");

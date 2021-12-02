@@ -34,7 +34,8 @@
 
             <%} %>
             <div class="page-container">
-                <img src="./Assets/Boom.png" alt="manager" />
+                <img class="logo" src="./Assets/Boom.png" alt="manager" />
+                <img class="background" src="./Assets/background.jpg" alt="background" />
                 <div class="main-container">
                     <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>

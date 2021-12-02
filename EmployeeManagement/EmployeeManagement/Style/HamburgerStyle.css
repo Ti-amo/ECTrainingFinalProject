@@ -1,8 +1,17 @@
-﻿#menu {
+﻿#menu-bar {
+    position: absolute;
+    width: auto;
+    height: auto;
+    background: #FFD900;
+    padding: 4px;
+}
+
+#menu {
     width: 35px;
-    height: 30px;
-    margin: 30px 0 20px 20px;
+    padding: 10px 0px;
     cursor: pointer;
+    display: flex;
+    flex-direction: column;
 }
 
 .bar {
@@ -27,18 +36,19 @@
     text-decoration: none;
 }
 
-.nav li a:hover {
+.nav li:hover {
+    background: #f76767;
+    border-radius: 3px;
     font-weight: bold;
+    cursor: pointer;
 }
 
 .nav li {
     list-style: none;
-    padding: 16px 0;
+    padding: 10px;
 }
 
 .nav {
-    padding: 0;
-    margin: 0 20px;
     transition: 0.3s ease;
     display: none;
 }
@@ -62,3 +72,4 @@
 .change {
     display: block;
 }
+
