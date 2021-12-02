@@ -71,19 +71,40 @@ namespace EmployeeManagement
         {
             if (IsValidData())
             {
-                EmployeeEntity newEmployee = new EmployeeEntity();
-                newEmployee.EmpCode = TextBoxEmployeeCode.Text;
-                newEmployee.Name = TextBoxName.Text;
-                newEmployee.NameKana = TextBoxNameKana.Text;
-                newEmployee.Gender = DropDownListGender.SelectedValue;
-                newEmployee.BirthDate = TextBoxDateOfBirth.Text;
-                newEmployee.Section = DropDownListSection.SelectedValue;
-                newEmployee.EmpDate = TextBoxEmpDate.Text;
                 EmployeeDAO dao = new EmployeeDAO();
-                dao.Insert(newEmployee);
-                Session["finish"] = "従業員登録";
-                Session["page"] = "EmployeeRegister";
-                Response.Redirect(@"Finish.aspx");
+
+                if (dao.Find(TextBoxEmployeeCode.Text) != null)
+                {
+                    Session["error"] = "従業員登録";
+                    Session["msg"] = "従業員コードが存在しました。";
+                    Session["page"] = "EmployeeRegister";
+                    Response.Redirect(@"Error.aspx");
+                }
+                else
+                {
+                    if (TextBoxEmployeeCode.Text.Length > 4 || TextBoxName.Text.Length > 16 || TextBoxNameKana.Text.Length > 24)
+                    {
+                        Session["error"] = "従業員登録";
+                        Session["msg"] = "許可されている文字数を超えて入力しまいました。";
+                        Session["page"] = "EmployeeRegister";
+                        Response.Redirect(@"Error.aspx");
+                    }
+                    else
+                    {
+                        EmployeeEntity newEmployee = new EmployeeEntity();
+                        newEmployee.EmpCode = TextBoxEmployeeCode.Text;
+                        newEmployee.Name = TextBoxName.Text;
+                        newEmployee.NameKana = TextBoxNameKana.Text;
+                        newEmployee.Gender = DropDownListGender.SelectedValue;
+                        newEmployee.BirthDate = TextBoxDateOfBirth.Text;
+                        newEmployee.Section = DropDownListSection.SelectedValue;
+                        newEmployee.EmpDate = TextBoxEmpDate.Text;
+                        dao.Insert(newEmployee);
+                        Session["finish"] = "従業員登録";
+                        Session["page"] = "EmployeeRegister";
+                        Response.Redirect(@"Finish.aspx");
+                    }
+                }
             }
             else
             {
@@ -92,6 +113,7 @@ namespace EmployeeManagement
                 Session["page"] = "EmployeeRegister";
                 Response.Redirect(@"Error.aspx");
             }
+           
         }
     }
 }

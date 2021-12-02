@@ -37,14 +37,34 @@ namespace EmployeeManagement
         {
             if (IsValidData())
             {
-                UserEntity newUser = new UserEntity();
-                newUser.UserId = TextBoxUserId.Text;
-                newUser.Password = TextBoxPassword.Text;
                 UserDAO userDAO = new UserDAO();
-                userDAO.Insert(newUser);
-                Session["finish"] = "ユーザ登録";
-                Session["page"] = "UserRegister";
-                Response.Redirect(@"Finish.aspx");
+                if (userDAO.Find(TextBoxUserId.Text) != null)
+                {
+                    Session["error"] = "ユーザ登録";
+                    Session["msg"] = "ユーザIDが存在しました。";
+                    Session["page"] = "UserRegister";
+                    Response.Redirect(@"Error.aspx");
+                }
+                else
+                {
+                    if (TextBoxUserId.Text.Length > 24 || TextBoxPassword.Text.Length > 32 )
+                    {
+                        Session["error"] = "ユーザ登録";
+                        Session["msg"] = "許可されている文字数を超えて入力しまいました。";
+                        Session["page"] = "UserRegister";
+                        Response.Redirect(@"Error.aspx");
+                    }
+                    else
+                    {
+                        UserEntity newUser = new UserEntity();
+                        newUser.UserId = TextBoxUserId.Text;
+                        newUser.Password = TextBoxPassword.Text;
+                        userDAO.Insert(newUser);
+                        Session["finish"] = "ユーザ登録";
+                        Session["page"] = "UserRegister";
+                        Response.Redirect(@"Finish.aspx");
+                    }
+                }
             }
             else
             {
