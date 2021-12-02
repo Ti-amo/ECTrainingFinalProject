@@ -14,35 +14,42 @@ namespace EmployeeManagement
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            if (Session["login"] == null)
             {
-                Dictionary<int, string> dGender = new Dictionary<int, string>();
-
-                ListDAO listDao = new ListDAO();
-                List<GenderItem> genderList = listDao.GetGenderList();
-
-                foreach (GenderItem genderItem in genderList)
+                Response.Redirect("Login.aspx");
+            }
+            else
+            {
+                if (!IsPostBack)
                 {
-                    dGender.Add(genderItem.GenderCode, genderItem.GenderName);
+                    Dictionary<int, string> dGender = new Dictionary<int, string>();
+
+                    ListDAO listDao = new ListDAO();
+                    List<GenderItem> genderList = listDao.GetGenderList();
+
+                    foreach (GenderItem genderItem in genderList)
+                    {
+                        dGender.Add(genderItem.GenderCode, genderItem.GenderName);
+                    }
+
+                    DropDownListGender.DataTextField = "Value";
+                    DropDownListGender.DataValueField = "Key";
+                    DropDownListGender.DataSource = dGender;
+                    DropDownListGender.DataBind();
+
+                    Dictionary<string, string> dSection = new Dictionary<string, string>();
+                    List<SectionItem> sectionList = listDao.GetSectionList();
+
+                    foreach (SectionItem sectionItem in sectionList)
+                    {
+                        dSection.Add(sectionItem.SectionCode, sectionItem.SectionName);
+                    }
+
+                    DropDownListSection.DataTextField = "Value";
+                    DropDownListSection.DataValueField = "Key";
+                    DropDownListSection.DataSource = dSection;
+                    DropDownListSection.DataBind();
                 }
-
-                DropDownListGender.DataTextField = "Value";
-                DropDownListGender.DataValueField = "Key";
-                DropDownListGender.DataSource = dGender;
-                DropDownListGender.DataBind();
-
-                Dictionary<string, string> dSection = new Dictionary<string, string>();
-                List<SectionItem> sectionList = listDao.GetSectionList();
-
-                foreach (SectionItem sectionItem in sectionList)
-                {
-                    dSection.Add(sectionItem.SectionCode, sectionItem.SectionName);
-                }
-
-                DropDownListSection.DataTextField = "Value";
-                DropDownListSection.DataValueField = "Key";
-                DropDownListSection.DataSource = dSection;
-                DropDownListSection.DataBind();
             }
         }
         /// <summary>
