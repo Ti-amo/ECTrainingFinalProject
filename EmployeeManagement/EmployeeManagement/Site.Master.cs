@@ -18,7 +18,7 @@ namespace EmployeeManagement
             {
                 Response.Redirect(@"Login.aspx");
             }
-            else
+            if (Session["login"] != null)
             {
                 UserEntity user = (UserEntity)Session["user"];
                 login = true;
