@@ -9,14 +9,22 @@ namespace EmployeeManagement
 {
     public partial class EmployeeList : System.Web.UI.Page
     {
+        /// <summary>
+        /// 従業員一覧
+        /// </summary>
         private List<EmployeeEntity> employees = new List<EmployeeEntity>();
+        /// <summary>
+        /// インスタンス
+        /// </summary>
         private EmployeeDAO employeeDAO = new EmployeeDAO();
 
         protected void Page_Load(object sender, EventArgs e)
         {
             FillData();
         }
-
+        /// <summary>
+        /// ページをロードする時、データを表示する
+        /// </summary>
         private void FillData()
         {
             employees = employeeDAO.FindAll();
@@ -107,7 +115,11 @@ namespace EmployeeManagement
                 TableEmployeeList.Rows.Add(tr);
             }
         }
-
+        /// <summary>
+        /// 変更ボタンを押下する
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void ButtonUpdate_Click(object sender, EventArgs e)
         {
             string empCode = "";
@@ -131,11 +143,16 @@ namespace EmployeeManagement
             }
             else
             {
+                // Redirect to EmployeeUpdate page
                 Session["EmpCode"] = empCode;
                 Response.Redirect("EmployeeUpdate.aspx");
             }
         }
-
+        /// <summary>
+        /// 削除ボタンを押下する
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void ButtonDelete_Click(object sender, EventArgs e)
         {
             bool isChecked = false;
@@ -156,6 +173,14 @@ namespace EmployeeManagement
                 Session["finish"] = "従業員削除";
                 Session["page"] = "EmployeeList";
                 Response.Redirect("Finish.aspx");
+            }
+            else
+            {
+                // Redirect to error page
+                Session["error"] = "従業員削除";
+                Session["msg"] = "従業員を一人選択してください。";
+                Session["page"] = "EmployeeList";
+                Response.Redirect("Error.aspx");
             }
         }
     }
