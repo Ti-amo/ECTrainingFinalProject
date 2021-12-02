@@ -14,35 +14,42 @@ namespace EmployeeManagement
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            if (Session["login"] == null)
             {
-                Dictionary<int, string> dGender = new Dictionary<int, string>();
-
-                ListDAO listDao = new ListDAO();
-                List<GenderItem> genderList = listDao.GetGenderList();
-
-                foreach (GenderItem genderItem in genderList)
+                Response.Redirect("Login.aspx");
+            }
+            else
+            {
+                if (!IsPostBack)
                 {
-                    dGender.Add(genderItem.GenderCode, genderItem.GenderName);
+                    Dictionary<int, string> dGender = new Dictionary<int, string>();
+
+                    ListDAO listDao = new ListDAO();
+                    List<GenderItem> genderList = listDao.GetGenderList();
+
+                    foreach (GenderItem genderItem in genderList)
+                    {
+                        dGender.Add(genderItem.GenderCode, genderItem.GenderName);
+                    }
+
+                    DropDownListGender.DataTextField = "Value";
+                    DropDownListGender.DataValueField = "Key";
+                    DropDownListGender.DataSource = dGender;
+                    DropDownListGender.DataBind();
+
+                    Dictionary<string, string> dSection = new Dictionary<string, string>();
+                    List<SectionItem> sectionList = listDao.GetSectionList();
+
+                    foreach (SectionItem sectionItem in sectionList)
+                    {
+                        dSection.Add(sectionItem.SectionCode, sectionItem.SectionName);
+                    }
+
+                    DropDownListSection.DataTextField = "Value";
+                    DropDownListSection.DataValueField = "Key";
+                    DropDownListSection.DataSource = dSection;
+                    DropDownListSection.DataBind();
                 }
-
-                DropDownListGender.DataTextField = "Value";
-                DropDownListGender.DataValueField = "Key";
-                DropDownListGender.DataSource = dGender;
-                DropDownListGender.DataBind();
-
-                Dictionary<string, string> dSection = new Dictionary<string, string>();
-                List<SectionItem> sectionList = listDao.GetSectionList();
-
-                foreach (SectionItem sectionItem in sectionList)
-                {
-                    dSection.Add(sectionItem.SectionCode, sectionItem.SectionName);
-                }
-
-                DropDownListSection.DataTextField = "Value";
-                DropDownListSection.DataValueField = "Key";
-                DropDownListSection.DataSource = dSection;
-                DropDownListSection.DataBind();
             }
         }
         /// <summary>
@@ -71,19 +78,40 @@ namespace EmployeeManagement
         {
             if (IsValidData())
             {
-                EmployeeEntity newEmployee = new EmployeeEntity();
-                newEmployee.EmpCode = TextBoxEmployeeCode.Text;
-                newEmployee.Name = TextBoxName.Text;
-                newEmployee.NameKana = TextBoxNameKana.Text;
-                newEmployee.Gender = DropDownListGender.SelectedValue;
-                newEmployee.BirthDate = TextBoxDateOfBirth.Text;
-                newEmployee.Section = DropDownListSection.SelectedValue;
-                newEmployee.EmpDate = TextBoxEmpDate.Text;
                 EmployeeDAO dao = new EmployeeDAO();
-                dao.Insert(newEmployee);
-                Session["finish"] = "従業員登録";
-                Session["page"] = "EmployeeRegister";
-                Response.Redirect(@"Finish.aspx");
+
+                if (dao.Find(TextBoxEmployeeCode.Text) != null)
+                {
+                    Session["error"] = "従業員登録";
+                    Session["msg"] = "従業員コードが存在しました。";
+                    Session["page"] = "EmployeeRegister";
+                    Response.Redirect(@"Error.aspx");
+                }
+                else
+                {
+                    if (TextBoxEmployeeCode.Text.Length > 4 || TextBoxName.Text.Length > 32 || TextBoxNameKana.Text.Length > 32)
+                    {
+                        Session["error"] = "従業員登録";
+                        Session["msg"] = "許可されている文字数を超えて入力しまいました。";
+                        Session["page"] = "EmployeeRegister";
+                        Response.Redirect(@"Error.aspx");
+                    }
+                    else
+                    {
+                        EmployeeEntity newEmployee = new EmployeeEntity();
+                        newEmployee.EmpCode = TextBoxEmployeeCode.Text;
+                        newEmployee.Name = TextBoxName.Text;
+                        newEmployee.NameKana = TextBoxNameKana.Text;
+                        newEmployee.Gender = DropDownListGender.SelectedValue;
+                        newEmployee.BirthDate = TextBoxDateOfBirth.Text;
+                        newEmployee.Section = DropDownListSection.SelectedValue;
+                        newEmployee.EmpDate = TextBoxEmpDate.Text;
+                        dao.Insert(newEmployee);
+                        Session["finish"] = "従業員登録";
+                        Session["page"] = "EmployeeRegister";
+                        Response.Redirect(@"Finish.aspx");
+                    }
+                }
             }
             else
             {
@@ -92,6 +120,7 @@ namespace EmployeeManagement
                 Session["page"] = "EmployeeRegister";
                 Response.Redirect(@"Error.aspx");
             }
+           
         }
     }
 }
