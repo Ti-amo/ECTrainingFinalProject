@@ -16,5 +16,10 @@ namespace EmployeeManagement {
         {
             Response.Redirect(@"" + Session["page"].ToString() + ".aspx");
         }
+        protected void ButtonMenu_Click(object sender, EventArgs e)
+        {
+            Response.Redirect(@"Menu.aspx");
+        }
+        
     }
 }

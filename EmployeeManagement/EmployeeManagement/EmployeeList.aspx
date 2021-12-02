@@ -2,13 +2,16 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div>
-        <!--#include file="/Include/HamburgerMenu.inc"-->
         <div>
-            <asp:Label runat="server" ID="LabelTitle" Text="全ての従業員" />
-            <asp:Button CssClass="btn btn-warning" runat="server" ID="ButtonUpdate" Text="変更" OnClick="ButtonUpdate_Click" />
-            <asp:Button CssClass="btn btn-danger" runat="server" ID="ButtonDelete" Text="削除" OnClick="ButtonDelete_Click" />
+            <!--#include file="/Include/HamburgerMenu.inc"-->
         </div>
-        <asp:Table runat="server" ID="TableEmployeeList" GridLines="Both" Width="100%" >
+        <h2 class="main-title">全ての従業員</h2>
+        
+        <div class="employee-list-button">
+            <asp:Button CssClass="btn btn-warning" runat="server" ID="ButtonUpdate" Text="変更" OnClick="ButtonUpdate_Click" Width="80" />
+            <asp:Button CssClass="btn btn-danger ml-4" runat="server" ID="ButtonDelete" Text="削除" OnClick="ButtonDelete_Click" Width="80" />
+        </div>
+        <asp:Table runat="server" ID="TableEmployeeList" GridLines="Both" Width="100%" CellPadding="8" >
             <asp:TableHeaderRow>
                 <asp:TableHeaderCell BorderStyle="Solid" BorderColor="Black" BorderWidth="1">コード</asp:TableHeaderCell>
                 <asp:TableHeaderCell BorderStyle="Solid" BorderColor="Black" BorderWidth="1">氏名</asp:TableHeaderCell>

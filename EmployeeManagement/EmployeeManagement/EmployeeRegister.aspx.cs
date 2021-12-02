@@ -14,12 +14,6 @@ namespace EmployeeManagement
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["login"] == null)
-            {
-                Response.Redirect("Login.aspx");
-            }
-            else
-            {
                 if (!IsPostBack)
                 {
                     Dictionary<int, string> dGender = new Dictionary<int, string>();
@@ -50,7 +44,6 @@ namespace EmployeeManagement
                     DropDownListSection.DataSource = dSection;
                     DropDownListSection.DataBind();
                 }
-            }
         }
         /// <summary>
         /// バリデート判定

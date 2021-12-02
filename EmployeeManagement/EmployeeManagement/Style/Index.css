@@ -59,6 +59,11 @@
     text-align: center;
     font-weight: 600;
 }
+.employee-list-button {
+    display: flex;
+    justify-content: flex-end;
+    margin: 10px 0px;
+}
 .ml-180 {
     margin-left: 180px
 }

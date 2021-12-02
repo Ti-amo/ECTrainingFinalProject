@@ -79,7 +79,7 @@ namespace EmployeeManagement
                 // 保有資格のセル
                 tc = new TableCell
                 {
-                    Text = string.Join(",", employee.License.ToArray())
+                    Text = string.Join("<br/>", employee.License.ToArray())
                 };
                 tc.BorderColor = Color.Black;
                 tc.BorderStyle = BorderStyle.Solid;

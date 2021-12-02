@@ -4,5 +4,8 @@
     <h2 class="main-title">
         <asp:Label ID="LabelFinish" runat="server"></asp:Label>
     </h2>
-    <asp:Button CssClass="btn btn-primary" ID="ButtonBack" runat="server" Text="戻る" OnClick="ButtonBack_Click" />
+    <div style="display:flex; justify-content: space-between">
+        <asp:Button CssClass="btn btn-primary" ID="Button1" runat="server" Text="戻る" OnClick="ButtonBack_Click" />
+        <asp:Button CssClass="btn btn-warning" ID="Button2" runat="server" Text="メニュー画面" OnClick="ButtonMenu_Click" />
+    </div>
 </asp:Content>
