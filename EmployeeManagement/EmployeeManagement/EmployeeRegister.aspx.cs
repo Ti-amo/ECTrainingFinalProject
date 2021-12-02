@@ -82,7 +82,7 @@ namespace EmployeeManagement
                 }
                 else
                 {
-                    if (TextBoxEmployeeCode.Text.Length > 4 || TextBoxName.Text.Length > 16 || TextBoxNameKana.Text.Length > 24)
+                    if (TextBoxEmployeeCode.Text.Length > 4 || TextBoxName.Text.Length > 32 || TextBoxNameKana.Text.Length > 32)
                     {
                         Session["error"] = "従業員登録";
                         Session["msg"] = "許可されている文字数を超えて入力しまいました。";
