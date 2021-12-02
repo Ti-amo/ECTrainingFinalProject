@@ -110,9 +110,6 @@
     <Content Include="Menu.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BasePage.cs">
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
     <Compile Include="DAO\EmployeeDAO.cs" />
     <Compile Include="DAO\LicenseDAO.cs" />
     <Compile Include="DAO\ListDAO.cs" />
