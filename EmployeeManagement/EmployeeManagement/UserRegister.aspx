@@ -2,8 +2,8 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h2 class="main-title">利用者登録</h2>
+    <br />
     <table width="100%">
-        <%-- <caption><b>利用者登録</b></caption>--%>
         <tr>
             <td width="20%">
                 <asp:Label ID="lbUserId" runat="server" Text="ユーザID"></asp:Label>
@@ -27,6 +27,5 @@
                 <asp:Button CssClass="btn btn-primary" ID="ButtonRegister" runat="server" Text="登録" Width="120px" OnClick="ButtonRegister_Click" />
             </td>
         </tr>
-
     </table>
 </asp:Content>
