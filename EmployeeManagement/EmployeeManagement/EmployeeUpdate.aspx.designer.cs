@@ -8,8 +8,9 @@
 //------------------------------------------------------------------------------
 
 namespace EmployeeManagement {
-    public partial class EmployeeUpdate
-    {
+
+
+    public partial class EmployeeUpdate {
 
         /// <summary>
         /// lbName control.
@@ -129,12 +130,12 @@ namespace EmployeeManagement {
         protected global::System.Web.UI.WebControls.Button ButtonCancel;
 
         /// <summary>
-        /// ButtonRegister control.
+        /// ButtonUpdate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonRegister;
+        protected global::System.Web.UI.WebControls.Button ButtonUpdate;
     }
 }

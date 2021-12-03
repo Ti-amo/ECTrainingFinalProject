@@ -12,7 +12,7 @@ namespace EmployeeManagement {
 
         protected void Page_Load(object sender, EventArgs e) {
             string pageUrl = HttpContext.Current.Request.Url.AbsoluteUri;
-            if (Session["login"] == null && !pageUrl.Contains("Login") && !pageUrl.Contains("Logout")) {
+            if (Session["login"] == null && !pageUrl.Contains("Login") && !pageUrl.Contains("Logout") && !pageUrl.Contains("Error")) {
                 Response.Redirect(@"Login.aspx");
             } else if (Session["login"] != null) {
                 UserEntity user = (UserEntity)Session["user"];
