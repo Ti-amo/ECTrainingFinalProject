@@ -11,7 +11,10 @@ using System.Web.UI.WebControls;
 namespace EmployeeManagement {
     public partial class Login : System.Web.UI.Page {
         protected void Page_Load(object sender, EventArgs e) {
-
+           if (Session["login"] != null)
+           {
+                Response.Redirect(@"Menu.aspx");
+           }
         }
 
         protected void ButtonLogin_Click(object sender, EventArgs e) {
