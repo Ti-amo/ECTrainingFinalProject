@@ -3,6 +3,7 @@ using EmployeeManagement.Entity;
 using EmployeeManagement.Item;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 
 namespace EmployeeManagement {
     public partial class EmployeeUpdate : System.Web.UI.Page {
@@ -31,8 +32,8 @@ namespace EmployeeManagement {
         private void FillData() {
             TextBoxName.Text = employee.Name;
             TextBoxNameKana.Text = employee.NameKana;
-            TextBoxDateOfBirth.Text = Convert.ToDateTime(employee.BirthDate).ToString("yyyy/MM/dd");
-            TextBoxEmpDate.Text = Convert.ToDateTime(employee.EmpDate).ToString("yyyy/MM/dd");
+            TextBoxDateOfBirth.Text = Convert.ToDateTime(employee.BirthDate).ToString("yyyy-MM-dd");
+            TextBoxEmpDate.Text = Convert.ToDateTime(employee.EmpDate).ToString("yyyy-MM-dd");
 
             Dictionary<int, string> dGender = new Dictionary<int, string>();
             ListDAO listDao = new ListDAO();

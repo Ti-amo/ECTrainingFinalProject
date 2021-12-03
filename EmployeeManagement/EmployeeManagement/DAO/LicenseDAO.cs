@@ -120,7 +120,7 @@ namespace EmployeeManagement.DAO {
                 licenseEntity = new LicenseEntity {
                     EmpCode = (string)dataReader["emp_cd"],
                     LicenseCode = (string)dataReader["license_cd"],
-                    GetLicenseDate = Convert.ToDateTime(dataReader["get_license_date"]).ToString("yyyy/MM/dd")
+                    GetLicenseDate = Convert.ToDateTime(dataReader["get_license_date"]).ToString("yyyy-MM-dd")
                 };
             }
 

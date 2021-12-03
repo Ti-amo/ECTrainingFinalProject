@@ -42,7 +42,7 @@
                 <asp:Label ID="lbDateOfBirth" runat="server" Text="生年月日"></asp:Label>
             </td>
             <td width="40%">
-                <asp:TextBox ID="TextBoxDateOfBirth" runat="server" placeholder="mm/dd/yyyy" TextMode="Date" ReadOnly="false"></asp:TextBox>
+                <asp:TextBox ID="TextBoxDateOfBirth" runat="server" TextMode="Date"></asp:TextBox>
 
             </td>
         </tr>
@@ -60,7 +60,7 @@
                 <asp:Label ID="lbEmpDate" runat="server" Text="入社日"></asp:Label>
             </td>
             <td width="40%">
-                <asp:TextBox ID="TextBoxEmpDate" runat="server" placeholder="mm/dd/yyyy" TextMode="Date" ReadOnly="false"></asp:TextBox>
+                <asp:TextBox ID="TextBoxEmpDate" runat="server" TextMode="Date"></asp:TextBox>
             </td>
         </tr>
         <tr>
