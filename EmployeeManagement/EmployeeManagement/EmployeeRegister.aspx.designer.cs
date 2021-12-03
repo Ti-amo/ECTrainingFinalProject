@@ -7,10 +7,12 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace EmployeeManagement {
+namespace EmployeeManagement
+{
 
 
-    public partial class EmployeeRegister {
+    public partial class EmployeeRegister
+    {
 
         /// <summary>
         /// lbEmployeeCode control.
