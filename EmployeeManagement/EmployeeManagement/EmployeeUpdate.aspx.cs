@@ -74,6 +74,18 @@ namespace EmployeeManagement {
             DropDownListSection.DataBind();
             DropDownListSection.SelectedValue = DropDownListSection.Items.FindByText(employee.Section).Value;
         }
+        private bool IsValidDate18years()
+        {
+            DateTime empDate = DateTime.Parse(TextBoxEmpDate.Text);
+            DateTime birthDate = DateTime.Parse(TextBoxDateOfBirth.Text);
+            System.TimeSpan d = empDate.Subtract(birthDate);
+            double days = d.TotalDays;
+            if (days < 6570)
+            {
+                return true;
+            }
+            return false;
+        }
 
         /// <summary>
         /// キャンセルボタンを押下する
@@ -105,7 +117,17 @@ namespace EmployeeManagement {
                 }
             } else if (!IsValidSpecialChar()) {
                 RedirectToErrorPage("従業員情報の変更", "入力した文字は特殊文字です。", "EmployeeUpdate");
-            } else {
+
+            }
+            else if (IsValidDate18years())
+            {
+                Session["error"] = "従業員情報の変更";
+                Session["msg"] = "従業員が18歳未満です。";
+                Session["page"] = "EmployeeUpdate";
+                Response.Redirect(@"Error.aspx");
+            }
+            else
+            {
                 employee.Name = TextBoxName.Text;
                 employee.NameKana = TextBoxNameKana.Text;
                 employee.Gender = DropDownListGender.SelectedValue;

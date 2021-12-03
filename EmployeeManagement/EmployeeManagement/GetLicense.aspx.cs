@@ -44,7 +44,18 @@ namespace EmployeeManagement {
                 DropDownListLicense.DataBind();
             }
         }
-
+        private bool IsValidDate()
+        {
+            DateTime date = DateTime.Parse(TextBoxDate.Text);
+            DateTime now = DateTime.Now;
+            System.TimeSpan d = date.Subtract(now);
+            double days = d.TotalDays;
+            if (days > 0 )
+            {
+                return true;
+            }
+            return false;
+        }
         protected void ButtonGet_Click(object sender, EventArgs e) {
             if (!string.IsNullOrWhiteSpace(TextBoxDate.Text)) {
                 EmployeeDAO employeeDao = new EmployeeDAO();
@@ -54,7 +65,16 @@ namespace EmployeeManagement {
                     Session["page"] = "GetLicense";
 
                     Response.Redirect(@"Error.aspx");
-                } else {
+                }
+                else if (IsValidDate())
+                {
+                    Session["error"] = "資格取得";
+                    Session["msg"] = "資格取得日は本日より前でなければなりません。";
+                    Session["page"] = "GetLicense";
+                    Response.Redirect(@"Error.aspx");
+                }
+                else 
+                {
                     LicenseDAO licenseDao = new LicenseDAO();
 
                     if (licenseDao.Find(DropDownListEmp.SelectedValue, DropDownListLicense.SelectedValue) == null) {
