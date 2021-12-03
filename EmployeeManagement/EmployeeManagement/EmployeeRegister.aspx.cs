@@ -44,8 +44,23 @@ namespace EmployeeManagement {
         /// バリデート判定
         /// </summary>
         /// <returns></returns>
-        private bool IsValidData() {
-            if (string.IsNullOrWhiteSpace(TextBoxEmployeeCode.Text) || string.IsNullOrWhiteSpace(TextBoxName.Text) || string.IsNullOrWhiteSpace(TextBoxNameKana.Text) || string.IsNullOrWhiteSpace(TextBoxEmpDate.Text) || string.IsNullOrWhiteSpace(TextBoxDateOfBirth.Text)) {
+        private bool IsValidDate18years()
+        {
+            DateTime empDate = DateTime.Parse(TextBoxEmpDate.Text);
+            DateTime birthDate = DateTime.Parse(TextBoxDateOfBirth.Text);
+            System.TimeSpan d = empDate.Subtract(birthDate);
+            double days = d.TotalDays;
+            if (days < 6570)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        private bool IsValidData()
+        {
+            if (string.IsNullOrWhiteSpace(TextBoxEmployeeCode.Text) || string.IsNullOrWhiteSpace(TextBoxName.Text) || string.IsNullOrWhiteSpace(TextBoxNameKana.Text) || string.IsNullOrWhiteSpace(TextBoxEmpDate.Text) || string.IsNullOrWhiteSpace(TextBoxDateOfBirth.Text) )
+            {
                 return false;
             }
             return true;
@@ -61,22 +76,37 @@ namespace EmployeeManagement {
         /// <param name="sender"></param>
         /// <param name="e"></param>
         protected void ButtonRegister_Click(object sender, EventArgs e) {
-            if (IsValidData()) {
-                if (IsValidSpecialChar()) {
+            if (IsValidData())
+            {
+                if (IsValidSpecialChar())
+                {
                     EmployeeDAO dao = new EmployeeDAO();
 
-                    if (dao.Find(TextBoxEmployeeCode.Text) != null) {
+                    if (dao.Find(TextBoxEmployeeCode.Text) != null)
+                    {
                         Session["error"] = "従業員登録";
                         Session["msg"] = "従業員コードが存在しました。";
                         Session["page"] = "EmployeeRegister";
                         Response.Redirect(@"Error.aspx");
-                    } else {
-                        if (TextBoxEmployeeCode.Text.Length > 4 || TextBoxName.Text.Length > 32 || TextBoxNameKana.Text.Length > 32) {
+                    }
+                    else if (IsValidDate18years())
+                    {
+                        Session["error"] = "従業員登録";
+                        Session["msg"] = "従業員が18歳未満です。";
+                        Session["page"] = "EmployeeRegister";
+                        Response.Redirect(@"Error.aspx");
+                    }
+                    else
+                    {
+                        if (TextBoxEmployeeCode.Text.Length > 4 || TextBoxName.Text.Length > 32 || TextBoxNameKana.Text.Length > 32)
+                        {
                             Session["error"] = "従業員登録";
                             Session["msg"] = "許可されている文字数を超えて入力しまいました。";
                             Session["page"] = "EmployeeRegister";
                             Response.Redirect(@"Error.aspx");
-                        } else {
+                        }
+                        else
+                        {
                             EmployeeEntity newEmployee = new EmployeeEntity();
                             newEmployee.EmpCode = TextBoxEmployeeCode.Text;
                             newEmployee.Name = TextBoxName.Text;
@@ -91,18 +121,23 @@ namespace EmployeeManagement {
                             Response.Redirect(@"Finish.aspx");
                         }
                     }
-                } else {
+                }
+                else
+                {
                     Session["error"] = "従業員登録";
                     Session["msg"] = "入力した文字は特殊文字です。";
                     Session["page"] = "EmployeeRegister";
                     Response.Redirect(@"Error.aspx");
                 }
-            } else {
+            }
+            else
+            {
                 Session["error"] = "従業員登録";
                 Session["msg"] = "従業員情報が登録できません。";
                 Session["page"] = "EmployeeRegister";
                 Response.Redirect(@"Error.aspx");
             }
+            
         }
 
         private bool IsValidSpecialChar() {
