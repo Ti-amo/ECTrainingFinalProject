@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="UserRegister.aspx.cs" Inherits="EmployeeManagement.UserRegister" MasterPageFile="~/Site.Master" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="UserRegister.aspx.cs" Inherits="EmployeeManagement.UserRegister" MasterPageFile="~/Site.Master" ValidateRequest="false" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h2 class="main-title">利用者登録</h2>
@@ -6,7 +6,7 @@
     <table width="100%">
         <tr>
             <td width="20%">
-                <asp:Label ID="lbUserId" runat="server" Text="ユーザID"></asp:Label>
+                <asp:Label ID="lbUserId" runat="server" Text="ユーザＩＤ"></asp:Label>
             </td>
             <td width="40%">
                 <asp:TextBox ID="TextBoxUserId" runat="server" Width="293px"></asp:TextBox>

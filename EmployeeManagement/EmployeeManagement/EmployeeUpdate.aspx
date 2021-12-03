@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="EmployeeUpdate.aspx.cs" Inherits="EmployeeManagement.EmployeeUpdate" MasterPageFile="~/Site.Master" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="EmployeeUpdate.aspx.cs" Inherits="EmployeeManagement.EmployeeUpdate" MasterPageFile="~/Site.Master" ValidateRequest="false" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h2 class="main-title">従業員情報変更</h2>
@@ -60,7 +60,7 @@
             <td width="35%"></td>
             <td width="40%" style="height: 100px">
                 <asp:Button CssClass="btn btn-danger" ID="ButtonCancel" runat="server" Text="キャンセル" Width="120px" OnClick="ButtonCancel_Click" />
-                <asp:Button CssClass="btn btn-primary" ID="ButtonRegister" runat="server" Text="変更" Width="120px" OnClick="ButtonRegister_Click" />
+                <asp:Button CssClass="btn btn-primary" ID="ButtonUpdate" runat="server" Text="変更" Width="120px" OnClick="ButtonUpdate_Click" />
             </td>
         </tr>
     </table>
