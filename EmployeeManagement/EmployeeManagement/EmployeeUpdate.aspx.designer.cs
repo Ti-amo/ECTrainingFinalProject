@@ -8,9 +8,8 @@
 //------------------------------------------------------------------------------
 
 namespace EmployeeManagement {
-
-
-    public partial class EmployeeUpdate {
+    public partial class EmployeeUpdate
+    {
 
         /// <summary>
         /// lbName control.

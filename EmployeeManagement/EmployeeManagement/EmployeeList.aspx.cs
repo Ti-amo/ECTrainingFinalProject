@@ -106,6 +106,7 @@ namespace EmployeeManagement
                 // チェックボックスのセル
                 tc = new TableCell();
                 CheckBox checkBox = new CheckBox();
+                checkBox.Checked = false;
                 tc.Controls.Add(checkBox);
                 tc.BorderColor = Color.Black;
                 tc.BorderStyle = BorderStyle.Solid;
@@ -135,11 +136,7 @@ namespace EmployeeManagement
             }
             if (check != 1)
             {
-                // Redirect to error page
-                Session["error"] = "従業員情報の変更";
-                Session["msg"] = "従業員を一人選択してください。";
-                Session["page"] = "EmployeeList";
-                Response.Redirect("Error.aspx");
+                RedirectToErrorPage("従業員情報の変更", "従業員を一人選択してください。", "EmployeeList");
             }
             else
             {
@@ -176,12 +173,21 @@ namespace EmployeeManagement
             }
             else
             {
-                // Redirect to error page
-                Session["error"] = "従業員削除";
-                Session["msg"] = "従業員を一人選択してください。";
-                Session["page"] = "EmployeeList";
-                Response.Redirect("Error.aspx");
+                RedirectToErrorPage("従業員削除", "従業員を一人選択してください。", "EmployeeList");
             }
+        }
+        /// <summary>
+        /// Redirect to error page
+        /// </summary>
+        /// <param name="err"></param>
+        /// <param name="msg"></param>
+        /// <param name="page"></param>
+        private void RedirectToErrorPage(string err, string msg, string page)
+        {
+            Session["error"] = err;
+            Session["msg"] = msg;
+            Session["page"] = page;
+            Response.Redirect("Error.aspx");
         }
     }
 }

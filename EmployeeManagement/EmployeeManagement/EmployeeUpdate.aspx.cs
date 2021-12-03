@@ -6,7 +6,8 @@ using System.Collections.Generic;
 using System.Globalization;
 
 namespace EmployeeManagement {
-    public partial class EmployeeUpdate : System.Web.UI.Page {
+    public partial class EmployeeUpdate : System.Web.UI.Page 
+    {
         /// <summary>
         /// 変更する従業員情報
         /// </summary>
@@ -15,21 +16,39 @@ namespace EmployeeManagement {
         /// インスタンス
         /// </summary>
         private EmployeeDAO employeeDAO = new EmployeeDAO();
+        /// <summary>
+        /// エラー一覧
+        /// </summary>
+        private enum Err
+        {
+            None,
+            ErrName,
+            ErrDateOfBirth,
+            ErrEmpDate
+        }
 
-        protected void Page_Load(object sender, EventArgs e) {
-            if (Session["EmpCode"] != null) {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (Session["EmpCode"] != null)
+            {
                 string empCode = (string)Session["EmpCode"];
                 employee = employeeDAO.Find(empCode);
-                if (!IsPostBack) {
+                if (!IsPostBack)
+                {
                     FillData();
                 }
+            }
+            else
+            {
+                RedirectToErrorPage("従業員情報の変更", "従業員を一人選択してください。", "EmployeeList");
             }
         }
 
         /// <summary>
         /// ページをロードする時、データを表示する
         /// </summary>
-        private void FillData() {
+        private void FillData()
+        {
             TextBoxName.Text = employee.Name;
             TextBoxNameKana.Text = employee.NameKana;
             TextBoxDateOfBirth.Text = Convert.ToDateTime(employee.BirthDate).ToString("yyyy-MM-dd");
@@ -68,7 +87,9 @@ namespace EmployeeManagement {
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        protected void ButtonCancel_Click(object sender, EventArgs e) {
+        protected void ButtonCancel_Click(object sender, EventArgs e)
+        {
+            Session.Remove("EmpCode");
             Response.Redirect("EmployeeList.aspx");
         }
 
@@ -77,47 +98,73 @@ namespace EmployeeManagement {
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        protected void ButtonRegister_Click(object sender, EventArgs e) {
-            if (IsValidData()) {
-                if (string.IsNullOrWhiteSpace(TextBoxDateOfBirth.Text) || string.IsNullOrWhiteSpace(TextBoxEmpDate.Text)) {
-                    // Redirect to error page
-                    Session["error"] = "従業員情報の変更";
-                    Session["msg"] = "生年月日または入社日を入力しませんでした。";
-                    Session["page"] = "EmployeeUpdate";
-                    Response.Redirect("Error.aspx");
-                } else {
-                    employee.Name = TextBoxName.Text;
-                    employee.NameKana = TextBoxNameKana.Text;
-                    employee.Gender = DropDownListGender.SelectedValue;
-                    employee.BirthDate = TextBoxDateOfBirth.Text;
-                    employee.Section = DropDownListSection.SelectedValue;
-                    employee.EmpDate = TextBoxEmpDate.Text;
-                    employeeDAO.Update(employee);
-                    // Redirect to done page
-                    Session["finish"] = "従業員情報の変更";
-                    Session["page"] = "EmployeeList";
-                    Session.Remove("EmpCode");
-                    Response.Redirect("Finish.aspx");
+        protected void ButtonRegister_Click(object sender, EventArgs e)
+        {
+            if(ValidateData() != Err.None)
+            {
+
+                switch (ValidateData()) {
+                    case Err.ErrName:
+                        RedirectToErrorPage("従業員情報の変更", "氏名（32文字以下）を入力してください。", "EmployeeUpdate");
+                        break;
+                    case Err.ErrDateOfBirth:
+                        RedirectToErrorPage("従業員情報の変更", "生年月日を入力しませんでした。", "EmployeeUpdate");
+                        break;
+                    case Err.ErrEmpDate:
+                        RedirectToErrorPage("従業員情報の変更", "入社日を入力しませんでした。", "EmployeeUpdate");
+                        break;
                 }
-            } else {
-                // Redirect to error page
-                Session["error"] = "従業員情報の変更";
-                Session["msg"] = "フィールドに内容（32文字以下）を入力してください。";
-                Session["page"] = "EmployeeUpdate";
-                Response.Redirect("Error.aspx");
+            }
+            else
+            {
+                employee.Name = TextBoxName.Text;
+                employee.NameKana = TextBoxNameKana.Text;
+                employee.Gender = DropDownListGender.SelectedValue;
+                employee.BirthDate = TextBoxDateOfBirth.Text;
+                employee.Section = DropDownListSection.SelectedValue;
+                employee.EmpDate = TextBoxEmpDate.Text;
+                employeeDAO.Update(employee);
+
+                Session.Remove("EmpCode");
+                // Redirect to done page
+                Session["finish"] = "従業員情報の変更";
+                Session["page"] = "EmployeeList";
+                Response.Redirect("Finish.aspx");
             }
         }
-
+        /// <summary>
+        /// Redirect to error page
+        /// </summary>
+        /// <param name="err"></param>
+        /// <param name="msg"></param>
+        /// <param name="page"></param>
+        private void RedirectToErrorPage(string err, string msg, string page)
+        {
+            Session["error"] = err;
+            Session["msg"] = msg;
+            Session["page"] = page;
+            Response.Redirect("Error.aspx");
+        }
         /// <summary>
         /// 入力したデータをチェックする
         /// </summary>
         /// <returns></returns>
-        private bool IsValidData() {
+        private Err ValidateData()
+        {
             if (string.IsNullOrWhiteSpace(TextBoxName.Text) || string.IsNullOrWhiteSpace(TextBoxNameKana.Text)
-                || TextBoxName.Text.Length > 32 || TextBoxNameKana.Text.Length > 32) {
-                return false;
+                || TextBoxName.Text.Length > 32 || TextBoxNameKana.Text.Length > 32)
+            {
+                return Err.ErrName;
             }
-            return true;
+            if (string.IsNullOrWhiteSpace(TextBoxDateOfBirth.Text))
+            {
+                return Err.ErrDateOfBirth;
+            }
+            if (string.IsNullOrWhiteSpace(TextBoxEmpDate.Text))
+            {
+                return Err.ErrEmpDate;
+            }
+            return Err.None;
         }
     }
 }
