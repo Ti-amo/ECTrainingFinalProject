@@ -63,9 +63,9 @@ namespace EmployeeManagement.DAO {
                     Name = (string)dataReader["name"],
                     NameKana = (string)dataReader["name_kana"],
                     Gender = (string)dataReader["gender_nm"],
-                    BirthDate = Convert.ToDateTime(dataReader["birth_date"]).ToString("yyyy/MM/dd"),
+                    BirthDate = Convert.ToDateTime(dataReader["birth_date"]).ToString("yyyy-MM-dd"),
                     Section = (string)dataReader["section_nm"],
-                    EmpDate = Convert.ToDateTime(dataReader["emp_date"]).ToString("yyyy/MM/dd")
+                    EmpDate = Convert.ToDateTime(dataReader["emp_date"]).ToString("yyyy-MM-dd")
                 };
                 employeeEntity.License = licenseDAO.FindAll(employeeEntity.EmpCode);
 
@@ -110,9 +110,9 @@ namespace EmployeeManagement.DAO {
                     Name = (string)dataReader["name"],
                     NameKana = (string)dataReader["name_kana"],
                     Gender = (string)dataReader["gender_nm"],
-                    BirthDate = Convert.ToDateTime(dataReader["birth_date"]).ToString("yyyy/MM/dd"),
+                    BirthDate = Convert.ToDateTime(dataReader["birth_date"]).ToString("yyyy-MM-dd"),
                     Section = (string)dataReader["section_nm"],
-                    EmpDate = Convert.ToDateTime(dataReader["emp_date"]).ToString("yyyy/MM/dd")
+                    EmpDate = Convert.ToDateTime(dataReader["emp_date"]).ToString("yyyy-MM-dd")
                 };
                 employeeEntity.License = licenseDAO.FindAll(employeeEntity.EmpCode);
             }
